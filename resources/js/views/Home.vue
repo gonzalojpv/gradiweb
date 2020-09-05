@@ -1,10 +1,15 @@
 <template>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col">1</div>
-                <div class="col">2</div>
-            </div>
-        </div>
+    <section class="page home">
+        <Slider/>
     </section>
 </template>
+
+<script>
+    import Slider from '../components/Slider'
+
+    export default {
+        components: {
+            Slider
+        }
+    }
+</script>

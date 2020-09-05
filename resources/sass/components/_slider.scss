@@ -1,0 +1,187 @@
+section.shortcode-slider {
+    position: relative;
+
+    div.texture-bg {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #020409 100%);
+        transform: rotate(180deg);
+    }
+
+    div.carousel {
+        div.carousel-inner {
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            div.carousel-item {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-x: center;
+                background-position-y: center;
+                height: 800px;
+
+                @include media-breakpoint-up(md) {
+                    height: 620px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    height: 100vh;
+                    min-height: 720px;
+                }
+
+                .carousel-item-content {
+                    height: 800px;
+
+                    @include media-breakpoint-up(md) {
+                        height: 620px;
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        height: 100vh;
+                        min-height: 720px;
+                    }
+                }
+
+                .carousel-footer {
+                    position: absolute;
+                    bottom: 0;
+
+                    .carousel-footer-inner {
+                        height: 48px;
+                        background-color: map-get($theme-colors, white);
+
+                        @include media-breakpoint-up(sm) {
+                            height: 60px;
+                        }
+                    }
+                }
+
+                div.carousel-caption {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    text-align: left;
+                    padding: 9rem 1rem 1rem;
+                    width: 100%;
+
+                    @include media-breakpoint-up(md) {
+                        width: 70%;
+                        padding: 10rem 0 0;
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        width: 58%;
+                        padding: 12rem 0 0;
+                    }
+
+                    @include media-breakpoint-up(xl) {
+                        padding: 15rem 0 0;
+                    }
+
+                    @include media-breakpoint-up(xxl) {
+                        width: 46%;
+                        padding: 17rem 0 0;
+                    }
+
+                    h1 {
+                        text-transform: uppercase;
+                        color: map-get($theme-colors, white);
+                        margin-bottom: 2rem;
+                    }
+
+                    hr {
+                        border-color: map-get($theme-colors, white);
+                        opacity: 0.25;
+                        width: 148px;
+                        margin-left: 0 !important;
+                        margin-right: 0;
+
+                        @include media-breakpoint-up(md) {
+                            width: 208px;
+                        }
+                    }
+
+                    p {
+                        font-family: "Montserrat", sans-serif;
+                        font-weight: 200;
+                        color: map-get($theme-colors, white);
+                        margin-bottom: 2rem;
+                        margin-top: 2rem;
+
+                        @include media-breakpoint-up(lg) {
+                            font-size: 1.25rem;
+                            line-height: 1.75rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        ol.carousel-indicators {
+            margin-bottom: 80px;
+
+            @include media-breakpoint-up(sm) {
+                margin-bottom: 100px;
+            }
+
+            li {
+                border-radius: 50%;
+                height: 8px;
+                width: 8px;
+                border: 1px solid map-get($theme-colors, white);
+                background-color: transparent;
+                margin: 0 1rem;
+
+                @include media-breakpoint-up(lg) {
+                    height: 12px;
+                    width: 12px;
+                    margin: 0 0.5rem;
+                }
+
+                &.active {
+                    height: 12px;
+                    width: 12px;
+                    background-color: map-get($theme-colors, white);
+
+                    @include media-breakpoint-up(sm) {
+                        height: 16px;
+                        width: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 2rem;
+
+    @include media-breakpoint-up(sm) {
+        width: 2.5rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        width: 3rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: 4rem;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        width: 5rem;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}

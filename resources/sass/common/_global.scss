@@ -144,8 +144,6 @@ body,
     .page {
         position: relative;
         height: auto;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
 
         @include media-breakpoint-up(md) {
             height: 100%;
