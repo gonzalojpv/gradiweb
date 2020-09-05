@@ -1,16 +1,22 @@
 <template>
-    <div class="content">
-        <transition
-            name="fade"
-            mode="out-in">
-            <router-view/>
-        </transition>
-    </div>
+    <div id="app">
+        <Header/>
+        <div class="content">
+            <transition
+                name="fade"
+                mode="out-in">
+                <router-view/>
+            </transition>
+        </div>
+  </div>
 </template>
 
 <script>
-
+    import Header from './views/layouts/Header'
     export default {
+        components: {
+            Header
+        }
     }
 </script>
 
