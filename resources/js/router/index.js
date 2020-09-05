@@ -8,6 +8,7 @@ import TermConditions from '../views/TermsConditions'
 import View404 from '../views/404'
 /* Auth */
 import Login from '../views/auth/Login'
+import SignUp from '../views/auth/SignUp'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/signup',
+        name: 'signup',
+        component: SignUp
     },
     {
         path: '/search',

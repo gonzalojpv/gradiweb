@@ -54,7 +54,7 @@
                             </li>
                             <li>
                                 <router-link
-                                    :to="{ name: 'auth' }">
+                                    :to="{ name: 'signup' }">
                                     Registrarse
                                 </router-link>
                             </li>
