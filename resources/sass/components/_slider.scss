@@ -8,7 +8,7 @@ section.shortcode-slider {
         width: 100%;
         top: 0;
         left: 0;
-        background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #020409 100%);
+        background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #1D3741 100%);
         transform: rotate(180deg);
     }
 
@@ -91,8 +91,9 @@ section.shortcode-slider {
 
                     h1 {
                         text-transform: uppercase;
-                        color: map-get($theme-colors, white);
+                        color: map-get($theme-colors, primary);
                         margin-bottom: 2rem;
+                        font-weight: 700;
                     }
 
                     hr {

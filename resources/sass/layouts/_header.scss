@@ -116,8 +116,8 @@ header.banner.fixed-top {
 
                         &:hover,
                         &.active {
-                            border-bottom: 2px solid map-get($theme-colors, secondary);
-                            color: map-get($theme-colors, $key: secondary);
+                            border-bottom: 2px solid map-get($theme-colors, primary);
+                            color: map-get($theme-colors, primary);
 
                             @include media-breakpoint-up(lg) {
                                 border-bottom-width: 6px;

@@ -12285,7 +12285,6 @@ body {
 }
 
 body {
-  background-color: #f5f7fa;
   /* Margin bottom by footer height */
   font-size: 1rem;
   line-height: 1.5rem;
@@ -12336,6 +12335,26 @@ body .page,
   }
 }
 
+.btn {
+  outline: 0;
+  transition: all 0.5s ease-out;
+  position: relative;
+}
+
+.btn:focus,
+.btn:active {
+  outline: 0;
+}
+
+.btn:hover {
+  bottom: -1px;
+}
+
+.btn.btn-link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 section.shortcode-slider {
   position: relative;
 }
@@ -12347,7 +12366,7 @@ section.shortcode-slider div.texture-bg {
   width: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #020409 100%);
+  background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #1D3741 100%);
   transform: rotate(180deg);
 }
 
@@ -12448,8 +12467,9 @@ section.shortcode-slider div.carousel div.carousel-inner div.carousel-item div.c
 
 section.shortcode-slider div.carousel div.carousel-inner div.carousel-item div.carousel-caption h1 {
   text-transform: uppercase;
-  color: #FCFAF1;
+  color: #9F4440;
   margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 section.shortcode-slider div.carousel div.carousel-inner div.carousel-item div.carousel-caption hr {
@@ -12701,8 +12721,8 @@ header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item 
 header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item a.nav-link.active,
 header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav a.active,
 header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.active {
-  border-bottom: 2px solid #FFD37B;
-  color: #FFD37B;
+  border-bottom: 2px solid #9F4440;
+  color: #9F4440;
 }
 
 @media (min-width: 992px) {
@@ -12734,5 +12754,123 @@ header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item 
 
 .navbar-toggler {
   padding: 4px 8px;
+}
+
+footer {
+  border-top: 2px solid #9F4440;
+  background-color: #1D3741;
+  padding-top: 3rem;
+}
+
+footer div.btn-icon-social {
+  background-color: transparent;
+  margin-bottom: 1rem;
+}
+
+footer div.btn-icon-social a.btn {
+  background-color: transparent;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  box-shadow: none;
+  outline: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer div.btn-icon-social a.btn.facebook {
+  filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(219deg) brightness(104%) contrast(100%);
+  background-image: url(/images/fb.svg?46505b7841865adc0f836d02765e1a5b);
+}
+
+footer div.btn-icon-social a.btn.instagram {
+  filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(219deg) brightness(104%) contrast(100%);
+  background-image: url(/images/instagram.svg?cda713d2822f36fd3ed23129d6ab1ae6);
+}
+
+footer div.btn-icon-social a.btn.twitter {
+  filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(219deg) brightness(104%) contrast(100%);
+  background-image: url(/images/twitter.svg?605e47d88092834a203e5214c7c4bac3);
+}
+
+footer .btn.btn-link {
+  color: #FFD37B;
+  font-size: 0.8rem;
+  outline: 0;
+  box-shadow: none;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0;
+  font-family: "Exo 2", sans-serif;
+  margin: 0;
+  display: block;
+  text-align: right;
+  line-height: 1;
+}
+
+footer div.menu-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer div.menu-links ul li {
+  display: block;
+}
+
+footer div.menu-links ul li::before {
+  content: " ";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #9F4440;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  margin-right: 0.5rem;
+}
+
+footer div.menu-links ul li a {
+  color: #FCFAF1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+footer div.logo-info {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  footer div.logo-info {
+    margin-bottom: 0;
+  }
+}
+
+footer div.logo-info div.logo {
+  width: 16rem;
+  height: 4rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/images/logo.png?cb06fc75a064edd67ee3213279054954);
+  margin-bottom: 0.5rem;
+}
+
+footer div.logo-info p {
+  color: #FCFAF1;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+footer div.copy-right {
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+footer div.copy-right p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 

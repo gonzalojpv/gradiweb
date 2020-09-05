@@ -8,14 +8,18 @@
                 <router-view/>
             </transition>
         </div>
+        <Footer/>
   </div>
 </template>
 
 <script>
     import Header from './views/layouts/Header'
+    import Footer from './views/layouts/Footer'
+
     export default {
         components: {
-            Header
+            Header,
+            Footer
         }
     }
 </script>
