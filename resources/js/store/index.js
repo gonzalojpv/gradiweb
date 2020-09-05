@@ -3,12 +3,14 @@ import Vuex from 'vuex'
 
 import auth from './modules/auth'
 import contact from './modules/contact'
+import feedback from './modules/feedback'
 
 Vue.use(Vuex)
 
 const modules = {
     auth,
     contact,
+    feedback,
 };
 
 const store = new Vuex.Store({

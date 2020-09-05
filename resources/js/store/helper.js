@@ -21,3 +21,12 @@ export const contactComputed = {
 };
 
 export const contactMethods = mapActions('contact', ['sendContact',]);
+/* Feedbacks */
+export const feedbackComputed = {
+    ...mapGetters('feedback', ['getFeedbacks']),
+    ...mapState('feedback', ['feedbacks']),
+};
+
+export const feedbackMethods = mapActions('feedback', [
+    'fetchFeedbacks',
+]);

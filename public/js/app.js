@@ -58644,7 +58644,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!**************************************!*\
   !*** ./resources/js/store/helper.js ***!
   \**************************************/
-/*! exports provided: authComputed, authMethods, contactComputed, contactMethods */
+/*! exports provided: authComputed, authMethods, contactComputed, contactMethods, feedbackComputed, feedbackMethods */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58653,6 +58653,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authMethods", function() { return authMethods; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contactComputed", function() { return contactComputed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contactMethods", function() { return contactMethods; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedbackComputed", function() { return feedbackComputed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedbackMethods", function() { return feedbackMethods; });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -58671,6 +58673,10 @@ var authMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('auth'
 
 var contactComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('contact', ['getContact'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('contact', ['contact']));
 var contactMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('contact', ['sendContact']);
+/* Feedbacks */
+
+var feedbackComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('feedback', ['getFeedbacks'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('feedback', ['feedbacks']));
+var feedbackMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('feedback', ['fetchFeedbacks']);
 
 /***/ }),
 
@@ -58689,6 +58695,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/auth */ "./resources/js/store/modules/auth.js");
 /* harmony import */ var _modules_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/contact */ "./resources/js/store/modules/contact.js");
+/* harmony import */ var _modules_feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/feedback */ "./resources/js/store/modules/feedback.js");
+
 
 
 
@@ -58696,7 +58704,8 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var modules = {
   auth: _modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"],
-  contact: _modules_contact__WEBPACK_IMPORTED_MODULE_3__["default"]
+  contact: _modules_contact__WEBPACK_IMPORTED_MODULE_3__["default"],
+  feedback: _modules_feedback__WEBPACK_IMPORTED_MODULE_4__["default"]
 };
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: modules
@@ -58929,6 +58938,53 @@ var actions = {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/feedback.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/feedback.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var baseURL = "https://garibaldihub.test/api/";
+var state = {
+  feedbacks: []
+};
+var mutations = {
+  SET_FEEDBACKS: function SET_FEEDBACKS(state, feedbacks) {
+    state.feedbacks = feedbacks;
+  }
+};
+var getters = {
+  getFeedbacks: function getFeedbacks(state) {
+    return state.feedbacks;
+  }
+};
+var actions = {
+  fetchFeedbacks: function fetchFeedbacks(_ref) {
+    var commit = _ref.commit;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(baseURL, "feedbacks/")).then(function (Response) {
+      commit('SET_FEEDBACKS', Response.data.data);
+      return Response.data;
+    })["catch"](function (Error) {
+      return Promise.reject(Error);
     });
   }
 };
