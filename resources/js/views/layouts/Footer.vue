@@ -68,9 +68,9 @@
                         <a href="#" class="btn twitter"></a>
                     </div>
 
-                    <router-link to="/" class="btn btn-link">Términos y condiciones</router-link>
-                    <router-link to="/" class="btn btn-link">Aviso de Privacidad</router-link>
-                    <router-link to="/" class="btn btn-link">Aviso de uso de cookies</router-link>
+                    <router-link :to="{ name: 'term-conditions' }" class="btn btn-link">Términos y condiciones</router-link>
+                    <router-link :to="{ name: 'term-conditions' }" class="btn btn-link">Aviso de Privacidad</router-link>
+                    <router-link :to="{ name: 'term-conditions' }" class="btn btn-link">Aviso de uso de cookies</router-link>
                 </div>
             </div>
         </div>

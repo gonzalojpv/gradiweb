@@ -47,6 +47,11 @@
                                     class="nav-link"
                                     :to="{ name: 'login' }">Reservar</router-link>
                             </li>
+                            <li class="menu-item nav-item">
+                                <router-link
+                                    class="nav-link"
+                                    :to="{ name: 'signup' }">Registrarse</router-link>
+                            </li>
                         </ul>
                     </div>
 

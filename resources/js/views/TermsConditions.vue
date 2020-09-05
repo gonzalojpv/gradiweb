@@ -1,9 +1,10 @@
 <template>
     <section class="terms">
+        <div class="texture-bg"></div>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <h1 class="text-primary">Términos y Condiciones</h1>
+                <div class="col caption">
+                    <h1 class="text-secondary">Términos y Condiciones</h1>
 
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, urna consequat felis vehicula class ultricies mollis dictumst, aenean non a in donec nulla. Phasellus ante pellentesque erat cum risus consequat imperdiet aliquam, integer placerat et turpis mi eros nec lobortis taciti, vehicula nisl litora tellus ligula porttitor metus. </p>
 
@@ -14,3 +15,22 @@
         </div>
     </section>
 </template>
+
+
+<style lang="scss" scoped>
+    @import '../../sass/_variables';
+
+    section.terms {
+        padding-top: 6rem;
+        padding-bottom: 1rem;
+
+        div.caption {
+            position: relative;
+            z-index: 4;
+
+            p {
+                color: map-get($theme-colors, white);
+            }
+        }
+    }
+</style>
