@@ -35,8 +35,11 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
 
         @include media-breakpoint-up(md) {
+            padding-top: 4rem;
             height: 100%;
             min-height: 100vh;
         }

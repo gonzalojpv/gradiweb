@@ -12319,14 +12319,11 @@ body .page,
 .content .page {
   position: relative;
   height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   body .page,
   .content .page {
-    padding-top: 4rem;
     height: 100%;
     min-height: 100vh;
   }
@@ -12464,7 +12461,7 @@ section.shortcode-slider div.carousel div.carousel-inner div.carousel-item div.c
 
 section.shortcode-slider div.carousel div.carousel-inner div.carousel-item div.carousel-caption h1 {
   text-transform: uppercase;
-  color: #9F4440;
+  color: #FFD37B;
   margin-bottom: 2rem;
   font-weight: 700;
 }
@@ -12824,6 +12821,61 @@ form.form-1 .btn {
   border-bottom-left-radius: 2px;
 }
 
+.icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}
+
+.icon.carousel-control-next-icon {
+  background-image: url(/images/icon-arrow-right.svg?0b752008cb0ccd4dc635bea7ca518fa1);
+}
+
+.icon.carousel-control-prev-icon {
+  background-image: url(/images/icon-arrow-left.svg?17bea9e1f738db5c6394e064c62962c5);
+}
+
+.icon.close-icon {
+  background-image: url(/images/icon-close.svg?ef50cea48b303a0381ab4c0b0c1f006e);
+}
+
+.icon.arrow-down {
+  background-image: url(/images/icon-down.svg?ce5598d383219a383a55555128fb9a75);
+}
+
+.icon.facebook {
+  background-image: url(/images/icon-facebook.svg?794533973005cb9e80ed81d4aa10f71f);
+}
+
+.icon.navbar-toggler-icon {
+  background-image: url(/images/icon-hamburger.svg?05c1a61d5d3aa2927894386ff8842230);
+}
+
+.icon.arrow-up {
+  background-image: url(/images/icon-up.svg?7aae74148f41eabbc8f15a6a43153a5f);
+}
+
+.icon.search {
+  background-image: url(/images/icon-search.svg?add98f9573a0e067490480b782b4efe6);
+}
+
+.icon.login {
+  background-image: url(/images/login.svg?7f71417827cbb8e3bb179431dff7ccd9);
+}
+
+.color-primary {
+  filter: invert(48%) sepia(18%) saturate(5303%) hue-rotate(27deg) brightness(94%) contrast(94%);
+}
+
+.color-black {
+  filter: invert(3%) sepia(6%) saturate(3492%) hue-rotate(182deg) brightness(92%) contrast(103%);
+}
+
+.color-white {
+  filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(219deg) brightness(104%) contrast(100%);
+}
+
 /* stylelint-disable */
 
 header.banner.fixed-top {
@@ -12906,7 +12958,18 @@ header.banner.fixed-top nav.navbar div.collapse div.header-actions > ul > li {
   display: inline-block;
 }
 
+header.banner.fixed-top nav.navbar div.collapse div.header-actions > ul > li:last-child {
+  margin-left: 1rem;
+}
+
 header.banner.fixed-top nav.navbar div.collapse div.header-actions > ul > li.search a {
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 1rem;
+}
+
+header.banner.fixed-top nav.navbar div.collapse div.header-actions > ul > li.login a {
   display: block;
   height: 1.5rem;
   width: 1.5rem;

@@ -42,7 +42,29 @@
                                     class="nav-link"
                                     :to="{ name: 'contact' }">Contáctanos</router-link>
                             </li>
+                            <li class="menu-item nav-item">
+                                <router-link
+                                    class="nav-link"
+                                    :to="{ name: 'login' }">Reservar</router-link>
+                            </li>
                         </ul>
+                    </div>
+
+                    <div class="my-2 my-lg-0">
+                        <div class="header-actions">
+                            <ul>
+                                <li class="search">
+                                    <router-link
+                                        class="icon search color-white"
+                                        :to="{ name: 'search' }"></router-link>
+                                </li>
+                                <li class="login">
+                                    <router-link
+                                        class="icon login color-white"
+                                        :to="{ name: 'login' }"></router-link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

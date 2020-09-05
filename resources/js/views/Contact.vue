@@ -5,7 +5,7 @@
             <div class="row h-100 align-items-center justify-content-center ">
                 <div class="col-12 col-sm-8 text-center">
                     <div class="caption">
-                        <h1 class="text-center text-primary">{{ title }}</h1>
+                        <h1 class="text-center text-secondary">{{ title }}</h1>
                         <p class="text-white">{{ paragraph }}</p>
                     </div>
                     <ContactForm/>

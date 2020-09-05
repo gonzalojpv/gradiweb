@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact'
+import Search from '../views/Search'
 import TermConditions from '../views/TermsConditions'
 import View404 from '../views/404'
 /* Auth */
@@ -20,6 +21,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: Search
     },
     {
         path: '/about',

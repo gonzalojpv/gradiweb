@@ -68,7 +68,20 @@ header.banner.fixed-top {
                     &>li {
                         display: inline-block;
 
+                        &:last-child {
+                            margin-left: 1rem;
+                        }
+
                         &.search {
+                            a {
+                                display: block;
+                                height: 1.5rem;
+                                width: 1.5rem;
+                                margin-top: 1rem;
+                            }
+                        }
+
+                        &.login {
                             a {
                                 display: block;
                                 height: 1.5rem;
