@@ -5,6 +5,8 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact'
 import TermConditions from '../views/TermsConditions'
 import View404 from '../views/404'
+/* Auth */
+import Login from '../views/auth/Login'
 
 Vue.use(VueRouter)
 
@@ -13,6 +15,11 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
     },
     {
         path: '/about',

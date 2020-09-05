@@ -48,7 +48,7 @@
                         <ul>
                             <li>
                                 <router-link
-                                    :to="{ name: 'auth' }">
+                                    :to="{ name: 'login' }">
                                     Login
                                 </router-link>
                             </li>

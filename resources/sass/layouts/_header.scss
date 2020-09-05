@@ -104,7 +104,7 @@ header.banner.fixed-top {
                         transition: all 0.5s ease-out;
 
                         @include media-breakpoint-up(lg) {
-                            padding: 3rem 1rem 2.625rem;
+                            padding: 2rem 1rem 1.625rem;
                             font-size: 0.875rem;
                             line-height: 1.25rem;
                         }
@@ -116,8 +116,8 @@ header.banner.fixed-top {
 
                         &:hover,
                         &.active {
-                            border-bottom: 2px solid map-get($theme-colors, primary);
-                            color: map-get($theme-colors, primary);
+                            border-bottom: 2px solid map-get($theme-colors, secondary);
+                            color: map-get($theme-colors, secondary);
 
                             @include media-breakpoint-up(lg) {
                                 border-bottom-width: 6px;
