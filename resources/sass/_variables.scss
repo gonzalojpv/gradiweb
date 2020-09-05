@@ -1,0 +1,43 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$grid-columns: 12;
+$grid-gutter-width: 32px;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+
+/** Fonts **/
+$font-header: "Exo 2",
+sans-serif;
+$font-family-base: "Roboto",
+sans-serif;
+
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$theme-colors: ('primary': #9F4440,
+    'secondary' : #FFD37B,
+    'white': #FCFAF1,
+    'dark': #1D3741,
+    'success': #45BEC6);
+
+
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1500px,
+) !default;
+
+$container-max-widths: (sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1440px,
+) !default;
+
+@import '~bootstrap/scss/mixins/_breakpoints'
