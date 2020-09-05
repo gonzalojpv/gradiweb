@@ -2416,6 +2416,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -6888,7 +6891,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "section.section-contact[data-v-60b5bca8] {\n  position: relative;\n  padding-top: 1rem;\n}", ""]);
+exports.push([module.i, "section.section-contact[data-v-60b5bca8] {\n  position: relative;\n  padding-top: 1rem;\n  z-index: 4;\n}", ""]);
 
 // exports
 
@@ -6921,12 +6924,13 @@ exports.push([module.i, ".title {\n  text-align: center;\n}", ""]);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);", ""]);
 
 // module
-exports.push([module.i, "/** Bootstrap navbar fix (https://git.io/fADqW) */\n/** Fonts **/\nsection.page-contact[data-v-1d91a851] {\n  position: relative;\n  height: auto;\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n}\n@media (min-width: 768px) {\nsection.page-contact[data-v-1d91a851] {\n    padding-top: 0;\n    padding-bottom: 0;\n    height: 100%;\n    min-height: 100vh;\n}\n}", ""]);
+exports.push([module.i, "/** Bootstrap navbar fix (https://git.io/fADqW) */\n/** Fonts **/\nsection.page-contact[data-v-1d91a851] {\n  position: relative;\n  height: auto;\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/bg/contact.jpg */ "./resources/images/bg/contact.jpg")) + ");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n@media (min-width: 768px) {\nsection.page-contact[data-v-1d91a851] {\n    padding-top: 0;\n    padding-bottom: 0;\n    height: 100%;\n    min-height: 100vh;\n}\n}\nsection.page-contact div.texture-bg[data-v-1d91a851] {\n  position: absolute;\n  z-index: 1;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: linear-gradient(180deg, rgba(2, 4, 9, 0) 0%, #1D3741 100%);\n  transform: rotate(180deg);\n}\nsection.page-contact div.caption[data-v-1d91a851] {\n  position: relative;\n  z-index: 4;\n}", ""]);
 
 // exports
 
@@ -7034,6 +7038,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -39330,6 +39361,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "page-contact" }, [
+    _c("div", { staticClass: "texture-bg" }),
+    _vm._v(" "),
     _c("div", { staticClass: "container h-100" }, [
       _c(
         "div",
@@ -39337,14 +39370,16 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "col-12 col-sm-8 text-center marco" },
+            { staticClass: "col-12 col-sm-8 text-center" },
             [
-              _c("h1", { staticClass: "text-center text-secundary" }, [
-                _vm._v(_vm._s(_vm.title))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-gray" }, [
-                _vm._v(_vm._s(_vm.paragraph))
+              _c("div", { staticClass: "caption" }, [
+                _c("h1", { staticClass: "text-center text-primary" }, [
+                  _vm._v(_vm._s(_vm.title))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-white" }, [
+                  _vm._v(_vm._s(_vm.paragraph))
+                ])
               ]),
               _vm._v(" "),
               _c("ContactForm")
@@ -58202,6 +58237,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./resources/images/bg/contact.jpg":
+/*!*****************************************!*\
+  !*** ./resources/images/bg/contact.jpg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/contact.jpg?2d028874a5115936d82172ac5239bca9";
 
 /***/ }),
 

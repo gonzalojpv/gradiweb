@@ -204,5 +204,6 @@
     section.section-contact {
         position: relative;
         padding-top: 1rem;
+        z-index: 4;
     }
 </style>
