@@ -12329,6 +12329,39 @@ body .page,
   }
 }
 
+body .page div.caption,
+.content .page div.caption {
+  position: relative;
+  z-index: 4;
+}
+
+body .page div.caption hr,
+.content .page div.caption hr {
+  border-color: #9F4440;
+  opacity: 0.5;
+  width: 128px;
+  margin-left: 0;
+  margin-bottom: 2.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  border-width: 0.2rem;
+}
+
+body .page div.caption h2,
+.content .page div.caption h2 {
+  color: #45BEC6;
+}
+
+body .page div.caption h2 span,
+.content .page div.caption h2 span {
+  color: #FFD37B;
+}
+
+body .page div.caption p,
+.content .page div.caption p {
+  color: #FCFAF1;
+}
+
 div.texture-bg {
   position: absolute;
   z-index: 1;
@@ -12920,6 +12953,73 @@ form.form-1 .btn {
   font-family: "Exo 2", sans-serif;
 }
 
+article.car-box {
+  position: relative;
+  margin-bottom: 2rem;
+  height: auto;
+  background-color: #FCFAF1;
+  top: 0;
+  transition: all 0.5s ease-out;
+  max-width: 24rem;
+  border: 1px solid #FCFAF1;
+  border-radius: 15px;
+}
+
+article.car-box:hover {
+  top: -8px;
+  border-color: transparent;
+  box-shadow: 0 0 2px 1px rgba(2, 4, 9, 0.05), 0 18px 12px -6px rgba(2, 4, 9, 0.15);
+}
+
+article.car-box a {
+  text-decoration: none;
+}
+
+article.car-box div.car-box-content {
+  padding: 1.25rem;
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+  article.car-box div.car-box-content {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+article.car-box div.car-box-content h6 {
+  color: #1D3741;
+}
+
+@media (min-width: 1200px) {
+  article.car-box div.car-box-content h6 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+article.car-box div.car-box-content p {
+  color: rgba(39, 44, 51, 0.7) !important;
+}
+
+article.car-box div.car-box-content .list-group li.list-group-item {
+  background-color: transparent;
+}
+
+article.car-box div.car-box-content .list-group li.list-group-item strong {
+  font-weight: 600;
+}
+
+article.car-box div.car-box-footer {
+  border-radius: 0px 0px 15px 15px;
+  padding: 1.25rem;
+  position: relative;
+  background-color: #FCFAF1;
+}
+
+article.car-box div.car-box-footer div.car-actions div.d-flex {
+  justify-content: space-between;
+}
+
 /* stylelint-disable */
 
 header.banner.fixed-top {
@@ -13388,7 +13488,7 @@ section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div
 }
 
 section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption h2 {
-  color: #1D3741;
+  color: #45BEC6;
 }
 
 section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption h2 span {
