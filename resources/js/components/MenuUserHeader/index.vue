@@ -6,11 +6,12 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
+            <font-awesome-icon icon="user-tie" />
         </button>
         <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header"><strong>Hi {{ user.first_name }}</strong></div>
             <router-link
-                class="dropdown-item active"
+                class="dropdown-item"
                 :to="{ name: 'account.edit' }">
                 Edit Account
             </router-link>
@@ -70,7 +71,8 @@
                 font-size: 0.875rem;
 
                 &.active,
-                &:hover {
+                &:hover,
+                &.router-link-active {
                     color: map-get($theme-colors, dark);
                     font-weight: 700;
                     background-color: transparent;

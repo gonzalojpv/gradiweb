@@ -1,7 +1,7 @@
 <template>
     <section class="section-contact">
           <form
-            class="login"
+            class="form-1"
             @submit.prevent="onSubmit">
             <div class="form-row">
                 <div class="col-12 col-sm-6 mb-3">
@@ -75,19 +75,6 @@
                         </div>
                 </div>
                 <div class="col-12 col-sm-4 mb-3">
-                    <select
-                        v-model="form.user_type"
-                        :class="{ 'is-invalid': $v.form.user_type.$error }"
-                        class="form-control">
-                        <option>...</option>
-                        <option value="musico">Soy musico</option>
-                        <option value="customer">Soy cliente</option>
-                    </select>
-                    <div
-                        v-if="!$v.form.note.required"
-                        class="invalid-feedback">
-                        Por favor selecciona un opción.
-                    </div>
 
                     <div class="mt-4">
                         <button
@@ -126,9 +113,7 @@
                     first_name: '',
                     last_name: '',
                     email: '',
-                    phone: '',
                     phone_number: '',
-                    user_type: '',
                 }
             }
         },
@@ -165,7 +150,6 @@
                 this.form.last_name = '';
                 this.form.email = '';
                 this.form.phone_number = '';
-                this.form.user_type = '';
                 this.form.customer_id = '';
 
                 this.$v.$reset();
@@ -186,9 +170,6 @@
                     email,
                 },
                 phone_number: {
-                    required,
-                },
-                user_type: {
                     required,
                 },
                 note: {

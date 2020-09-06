@@ -71,7 +71,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #1D3741;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -509,7 +509,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #1D3741;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4598,15 +4598,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
+  box-shadow: 0 0 0 1px #1D3741, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
+  box-shadow: 0 0 0 1px #1D3741, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
+  box-shadow: 0 0 0 1px #1D3741, 0 0 0 0.2rem rgba(159, 68, 64, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4834,8 +4834,8 @@ input[type=button].btn-block {
 .banner .nav .nav-tabs li.show .nav-link,
 .banner .nav .nav-tabs li.show a {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #1D3741;
+  border-color: #dee2e6 #dee2e6 #1D3741;
 }
 
 .nav-tabs .dropdown-menu {
@@ -13069,7 +13069,10 @@ header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav 
 header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a:hover,
 header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item a.nav-link.active,
 header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav a.active,
-header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.active {
+header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.active,
+header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item a.nav-link.router-link-active,
+header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav a.router-link-active,
+header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.router-link-active {
   border-bottom: 2px solid #FFD37B;
   color: #FFD37B;
 }
@@ -13080,7 +13083,10 @@ header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item 
   header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a:hover,
   header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item a.nav-link.active,
   header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav a.active,
-  header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.active {
+  header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.active,
+  header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item a.nav-link.router-link-active,
+  header.banner.fixed-top nav.navbar div.collapse ul.navbar-nav li.menu-item .nav a.router-link-active,
+  header.banner.fixed-top .nav nav.navbar div.collapse ul.navbar-nav li.menu-item a.router-link-active {
     border-bottom-width: 6px;
   }
 }
@@ -13270,5 +13276,258 @@ footer div.copy-right p {
   max-width: 536px;
   line-height: 1.556;
   margin-bottom: 0;
+}
+
+/* stylelint-disable */
+
+section.shortcode-about-us {
+  position: relative;
+  background-color: #FCFAF1;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content {
+  position: relative;
+  background-color: #FCFAF1;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content .shortcode-about-us-text {
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  section.shortcode-about-us div.shortcode-about-us-content .shortcode-about-us-text {
+    height: auto;
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.shortcode-about-us-current-image {
+  position: relative;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 0.2s ease-in-out;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.shortcode-about-us-current-image {
+    height: 480px;
+  }
+}
+
+@media (min-width: 992px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.shortcode-about-us-current-image {
+    height: 100vh;
+    min-height: 540px;
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide {
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide {
+    height: auto;
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item {
+  position: relative;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+  right: unset;
+  left: unset;
+  bottom: unset;
+  text-align: left;
+  position: relative;
+  color: black;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 576px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+    padding: 3rem 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+    padding: 4rem 3.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+    padding: 0rem 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+    padding: 0rem 4rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption {
+    padding: 0rem 5rem;
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption hr {
+  border-color: #9F4440;
+  opacity: 0.5;
+  width: 128px;
+  margin-left: 0;
+  margin-bottom: 2.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption h2 {
+  color: #1D3741;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption h2 span {
+  color: #FFD37B;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide div.carousel-inner div.carousel-item div.carousel-caption p {
+  color: #FCFAF1;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev,
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next {
+  opacity: 1;
+  top: -20px;
+  background-color: #9F4440;
+  height: 40px;
+  width: 40px;
+  z-index: 1000000;
+}
+
+@media (min-width: 992px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev,
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next {
+    display: flex;
+    margin-top: -20px;
+    top: calc(50% - 20px);
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev .carousel-control-prev-icon,
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev .carousel-control-next-icon,
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next .carousel-control-prev-icon,
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next .carousel-control-next-icon {
+  height: 16px;
+  width: 16px;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev {
+  left: 0;
+  transition: all 0.25s ease-out;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev:hover {
+  left: -4px;
+}
+
+@media (min-width: 768px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev {
+    left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev {
+    left: -20px;
+  }
+
+  section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-prev:hover {
+    left: -24px;
+  }
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next {
+  right: 0;
+  transition: all 0.25s ease-out;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next:hover {
+  right: -4px;
+}
+
+section.shortcode-about-us div.shortcode-about-us-content div.carousel.slide .carousel-control-next .carousel-control-next-icon {
+  display: block;
+}
+
+.carousel-about-us ol.carousel-indicators {
+  display: none;
+  justify-content: center;
+  margin: 0;
+  bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .carousel-about-us ol.carousel-indicators {
+    margin: 1rem 0 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-about-us ol.carousel-indicators {
+    margin: 1.5rem 0 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-about-us ol.carousel-indicators {
+    margin: 2rem 0 0;
+    display: flex;
+  }
+}
+
+.carousel-about-us ol.carousel-indicators li {
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  opacity: 1;
+  box-sizing: inherit !important;
+  border: 0;
+  margin: 0 1rem 32px 0;
+}
+
+.carousel-about-us ol.carousel-indicators li.active::after {
+  content: " ";
+  height: 6px;
+  width: 48px;
+  position: relative;
+  display: block;
+  background-color: #9F4440;
+  bottom: -32px;
+}
+
+.carousel-about-us ol.carousel-indicators li.active div.carousel-indicators-image {
+  filter: grayscale(0);
+}
+
+.carousel-about-us ol.carousel-indicators li div.carousel-indicators-image {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(1);
+  transition: all 0.5s ease-out;
+  top: 0;
+}
+
+.carousel-about-us ol.carousel-indicators li div.carousel-indicators-image:hover {
+  filter: grayscale(0);
+  top: -4px;
 }
 

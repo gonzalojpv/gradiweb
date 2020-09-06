@@ -128,7 +128,8 @@ header.banner.fixed-top {
                         }
 
                         &:hover,
-                        &.active {
+                        &.active,
+                        &.router-link-active {
                             border-bottom: 2px solid map-get($theme-colors, secondary);
                             color: map-get($theme-colors, secondary);
 

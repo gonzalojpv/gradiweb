@@ -4,6 +4,37 @@ import router from './router'
 import { store } from './store'
 import Vuelidate from 'vuelidate'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faSignInAlt,
+    faCheckCircle,
+    faInfoCircle,
+    faUserTie,
+    faChevronRight,
+    faChevronLeft,
+    faUser,
+    faCertificate,
+    faHistory,
+} from '@fortawesome/free-solid-svg-icons'
+import { faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+Vue.use(Vuelidate)
+
+library.add(
+    faSignInAlt,
+    faCheckCircle,
+    faInfoCircle,
+    faUserTie,
+    faChevronRight,
+    faChevronLeft,
+    faUser,
+    faYoutube,
+    faCertificate,
+    faHistory,
+)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 Vue.use(Vuelidate)
 
 import 'bootstrap'

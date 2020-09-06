@@ -30,11 +30,6 @@
                             <li class="menu-item nav-item">
                                 <router-link
                                     class="nav-link"
-                                    :to="{ name: 'home' }">Inicio</router-link>
-                            </li>
-                            <li class="menu-item nav-item">
-                                <router-link
-                                    class="nav-link"
                                     :to="{ name: 'about' }">Quiénes somos</router-link>
                             </li>
                             <li class="menu-item nav-item">
