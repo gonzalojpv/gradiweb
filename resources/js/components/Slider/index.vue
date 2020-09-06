@@ -18,9 +18,6 @@
                     <div class="container">
                         <div class="row carousel-item-content">
                             <div class="col-12 p-0">
-                                <div class="container carousel-footer p-0">
-                                    <div class="col-12 carousel-footer-inner"></div>
-                                </div>
                                 <div class="carousel-caption d-md-block">
                                     <h1>{{ item.title }}</h1>
                                     <hr>

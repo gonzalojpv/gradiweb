@@ -47,7 +47,9 @@
                                     class="nav-link"
                                     :to="{ name: 'login' }">Reservar</router-link>
                             </li>
-                            <li class="menu-item nav-item">
+                            <li
+                                v-if="!loggedIn"
+                                class="menu-item nav-item">
                                 <router-link
                                     class="nav-link"
                                     :to="{ name: 'signup' }">Registrarse</router-link>
@@ -57,7 +59,7 @@
 
                     <div class="my-2 my-lg-0">
                         <div class="header-actions">
-                            <ul>
+                            <ul v-if="!loggedIn">
                                 <li class="search">
                                     <router-link
                                         class="icon search color-white"
@@ -69,6 +71,7 @@
                                         :to="{ name: 'login' }"></router-link>
                                 </li>
                             </ul>
+                            <MenuUserHeader :user="getCurrentUser" v-else/>
                         </div>
                     </div>
                 </div>
@@ -77,3 +80,17 @@
         </div>
     </header>
 </template>
+
+<script>
+    import { authComputed } from '../../store/helper'
+    import MenuUserHeader from '../../components/MenuUserHeader'
+
+    export default {
+        components: {
+            MenuUserHeader
+        },
+        computed: {
+            ...authComputed,
+        }
+    }
+</script>

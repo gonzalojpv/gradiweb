@@ -23,7 +23,7 @@
                             </li>
                             <li>
                                 <router-link
-                                    :to="{ name: 'community' }">
+                                    :to="{ name: 'home' }">
                                     Sé parte de
                                 </router-link>
                             </li>

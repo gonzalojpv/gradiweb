@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { store } from '../store';
 
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact'
@@ -9,6 +10,7 @@ import View404 from '../views/404'
 /* Auth */
 import Login from '../views/auth/Login'
 import SignUp from '../views/auth/SignUp'
+import ForgotPassword from '../views/auth/ForgotPassword'
 
 Vue.use(VueRouter)
 
@@ -21,12 +23,51 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login,
+        beforeEnter(routeTo, routeForm, next) {
+            if (store.getters['auth/loggedIn']) {
+                next({ name: 'home' });
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/logout',
+        name: 'logout',
+        meta: {
+            authRequired: true,
+        },
+        beforeEnter(routeTo, routeFrom, next) {
+            store.dispatch('auth/logOut');
+            const authRequiredOnPreviousRoute = routeFrom.matched.some(
+                route => route.meta.authRequired
+            );
+            // Navigate back to previous page, or home as a fallback
+            next(authRequiredOnPreviousRoute ? { name: 'login' } : { ...routeFrom });
+        }
     },
     {
         path: '/signup',
         name: 'signup',
-        component: SignUp
+        component: SignUp,
+        beforeEnter(routeTo, routeForm, next) {
+            if (store.getters['auth/loggedIn']) {
+                next({ name: 'home' });
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/reset-password',
+        name: 'reset-password',
+        component: ForgotPassword,
+        meta: {
+            authRequired: false,
+        },
     },
     {
         path: '/search',

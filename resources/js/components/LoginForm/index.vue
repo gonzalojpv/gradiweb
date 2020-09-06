@@ -7,17 +7,10 @@
             <div class="text-center">
                 <div
                     v-if="authError"
-                    class="alert alert-soft-accent">
-                    <div class="d-flex flex-wrap">
-                        <div class="mr-4">
-                            <font-awesome-icon icon="info-circle" />
-                        </div>
-                        <div class="flex">
-                            <small
-                                v-text="authError"
-                                class="text-dark-light"></small>
-                        </div>
-                    </div>
+                    class="alert alert-warning">
+                    <small
+                        v-text="authError"
+                        class="text-dark-light"></small>
                 </div>
             </div>
 
@@ -119,15 +112,17 @@
                         password: this.form.password,
                     }).then((response) => {
 
-                        if (response.key) {
-                            this.$router.push({ name: 'dashboard.home'});
+                        if (response.success) {
+                            this.$router.push({ name: 'home'});
                         }
                     }).catch( (error) => {
                         this.tryingToLogIn = false;
                         this.submit = 'Iniciar Sesión';
 
-                        if (error.response && error.response.data.non_field_errors.length) {
-                            this.authError = error.response.data.non_field_errors.join('<br/>');
+                        console.log(error.response.data);
+
+                        if (error.response && error.response.data.message) {
+                            this.authError = error.response.data.message;
                         }
                         else {
                             this.authError = 'Lo sentimos ocurrio un error.';

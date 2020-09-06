@@ -1,0 +1,33 @@
+.page-separator {
+    position: relative;
+    color: map-get($theme-colors, gray);
+    display: flex;
+    align-items: center;
+    z-index: 0;
+    margin-bottom: 1rem;
+
+    &::before {
+        content: "";
+        height: 1px;
+        background-color: rgba(0, 0, 0, .1);
+        width: 100%;
+        top: 50%;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .page-separator__text {
+        display: inline-flex;
+        padding-right: .5rem;
+        border-radius: .25rem;
+        background-color: #f5f7fa;
+        max-width: 90%;
+        text-transform: uppercase;
+        font-size: .9375rem;
+        color: #303956;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-family: $font-header;
+    }
+}

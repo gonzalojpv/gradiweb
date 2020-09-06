@@ -71,13 +71,7 @@ class RegisterController extends BaseController
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $user = Auth::user();
-
-            if ( NULL !== $user->email_verified_at) {
-                return $this->sendResponse(new UserResource($user), 'User login successfully.');
-            }
-            else {
-                return $this->sendError('Please Verify Email.', ['error'=>'Please Verify Email']);
-            }
+            return $this->sendResponse(new UserResource($user), 'User login successfully.');
         }
         else{
             return $this->sendError('Correo o contraseña incorrecta', ['error'=>'Unauthorised']);

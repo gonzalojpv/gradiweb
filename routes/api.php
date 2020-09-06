@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\RegisterController@login');
 Route::post('signup', 'Api\RegisterController@register');
 
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::resource('users', 'Api\UserController');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

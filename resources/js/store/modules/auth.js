@@ -75,38 +75,6 @@ const actions = {
                 return Promise.reject(error);
             });
     },
-    resetPassword({ commit, dispatch, getters }, params) {
-        return axios.post(`${process.env.MIX_VUE_APP_BASE_URI}reset-password`, params)
-            .then((response) => {
-                const output = response.data;
-                //commit('SET_CURRENT_USER', user.data);
-                return output;
-            }).catch(error => {
-                return Promise.reject(error);
-            });
-    },
-    changePassword({ commit }, params) {
-        return axios.post(`${process.env.MIX_VUE_APP_BASE_URI}reset/password`, params)
-            .then((response) => {
-                const output = response.data;
-                //commit('SET_CURRENT_USER', user.data);
-                return output;
-            }).catch(error => {
-                return Promise.reject(error);
-            });
-    },
-    verifyEmail({ commit }, { id }) {
-        return axios.get(`${process.env.MIX_VUE_APP_BASE_URI}email/verify/${id}`).then(response => {
-            const user = response.data;
-            commit('SET_CURRENT_USER', user.data);
-            return user;
-        }).catch(error => {
-            if (error.response.status === 401) {
-                commit('SET_CURRENT_USER', null);
-            }
-            return null;
-        });
-    },
     updateData({ commit }, { id, params }) {
         return axios.put(`${process.env.MIX_VUE_APP_BASE_URI}users/${id}`, params)
             .then((response) => {
