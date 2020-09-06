@@ -49,13 +49,11 @@
 
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span>
-                                <font-awesome-icon icon="chevron-left"/>
                             </span>
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span>
-                                <font-awesome-icon icon="chevron-right"/>
                             </span>
                             <span class="sr-only">Next</span>
                         </a>

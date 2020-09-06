@@ -41,54 +41,23 @@ class UserController extends BaseController
         $input = $request->all();
 
         $user = Auth::user();
+         $validator = Validator::make($input, [
+            'first_name'   => 'required',
+            'last_name'    => 'required',
+            'phone_number' => 'required',
+            'email'        => 'required',
+        ]);
 
-        if ( isset( $input['partial'] ) ) {
-            $rules = $this->_rules();
-
-            $validator = Validator::make($input, $rules);
-
-            if( $validator->fails() ) {
-                return $this->sendError('Validation Error.', $validator->errors());
-            }
-
-            $user->password = Hash::make( $input['password'] );
+        if( $validator->fails() ) {
+            return $this->sendError('Validation Error.', $validator->errors());
         }
-        else {
-            $validator = Validator::make($input, [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'phone_number' => 'required',
-            ]);
 
-            if( $validator->fails() ) {
-                return $this->sendError('Validation Error.', $validator->errors());
-            }
-
-            $user->first_name = $input['first_name'];
-            $user->last_name = $input['last_name'];
-            $user->phone_number = $input['phone_number'];
-        }
+        $user->first_name = $input['first_name'];
+        $user->last_name = $input['last_name'];
+        $user->phone_number = $input['phone_number'];
 
         $user->save();
 
         return $this->sendResponse(new UserResource($user), 'User updated successfully.');
-    }
-
-    private function _rules() {
-
-        $hashed_password = null;
-        $user = Auth::user();
-
-        if ($user) {
-            $hashed_password = $user->password;
-        }
-
-        $rules = [
-            'password' => ['string', 'min:6', 'confirmed'],
-            'oldPassword'=> "password_hash_check:$hashed_password|string|min:6",
-            'newPassword' => 'required_with:oldPassword|confirmed|min:6',
-        ];
-
-        return $rules;
     }
 }

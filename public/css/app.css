@@ -12908,9 +12908,9 @@ form.form-1 .btn {
 
 .page-separator .page-separator__text {
   display: inline-flex;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
-  background-color: #f5f7fa;
+  background-color: #FFD37B;
   max-width: 90%;
   text-transform: uppercase;
   font-size: 0.9375rem;

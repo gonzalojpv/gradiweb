@@ -6,13 +6,12 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-            <font-awesome-icon icon="user-tie" />
         </button>
         <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header"><strong>Hi {{ user.first_name }}</strong></div>
             <router-link
                 class="dropdown-item active"
-                :to="{ name: 'settings.edit' }">
+                :to="{ name: 'account.edit' }">
                 Edit Account
             </router-link>
             <div class="dropdown-divider"></div>

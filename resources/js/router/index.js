@@ -11,6 +11,8 @@ import View404 from '../views/404'
 import Login from '../views/auth/Login'
 import SignUp from '../views/auth/SignUp'
 import ForgotPassword from '../views/auth/ForgotPassword'
+/* Account */
+import AccountEdit from '../views/account/Edit'
 
 Vue.use(VueRouter)
 
@@ -19,6 +21,14 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/edit',
+        name: 'account.edit',
+        component: AccountEdit,
+        meta: {
+            authRequired: true
+        }
     },
     {
         path: '/login',
