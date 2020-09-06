@@ -30,3 +30,14 @@ export const feedbackComputed = {
 export const feedbackMethods = mapActions('feedback', [
     'fetchFeedbacks',
 ]);
+/* Cars */
+export const carComputed = {
+    ...mapGetters('car', ['getAllCars']),
+    ...mapState('car', ['cars']),
+};
+
+export const carMethods = mapActions('car', [
+    'fetchAllCars',
+    'createCar',
+    'deleteCar',
+]);

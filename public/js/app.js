@@ -72082,7 +72082,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!**************************************!*\
   !*** ./resources/js/store/helper.js ***!
   \**************************************/
-/*! exports provided: authComputed, authMethods, contactComputed, contactMethods, feedbackComputed, feedbackMethods */
+/*! exports provided: authComputed, authMethods, contactComputed, contactMethods, feedbackComputed, feedbackMethods, carComputed, carMethods */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72093,6 +72093,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contactMethods", function() { return contactMethods; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedbackComputed", function() { return feedbackComputed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedbackMethods", function() { return feedbackMethods; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "carComputed", function() { return carComputed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "carMethods", function() { return carMethods; });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -72115,6 +72117,10 @@ var contactMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('co
 
 var feedbackComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('feedback', ['getFeedbacks'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('feedback', ['feedbacks']));
 var feedbackMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('feedback', ['fetchFeedbacks']);
+/* Cars */
+
+var carComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('car', ['getAllCars'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('car', ['cars']));
+var carMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('car', ['fetchAllCars', 'createCar', 'deleteCar']);
 
 /***/ }),
 
@@ -72134,6 +72140,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/auth */ "./resources/js/store/modules/auth.js");
 /* harmony import */ var _modules_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/contact */ "./resources/js/store/modules/contact.js");
 /* harmony import */ var _modules_feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/feedback */ "./resources/js/store/modules/feedback.js");
+/* harmony import */ var _modules_car__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/car */ "./resources/js/store/modules/car.js");
+
 
 
 
@@ -72143,7 +72151,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 var modules = {
   auth: _modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"],
   contact: _modules_contact__WEBPACK_IMPORTED_MODULE_3__["default"],
-  feedback: _modules_feedback__WEBPACK_IMPORTED_MODULE_4__["default"]
+  feedback: _modules_feedback__WEBPACK_IMPORTED_MODULE_4__["default"],
+  car: _modules_car__WEBPACK_IMPORTED_MODULE_5__["default"]
 };
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: modules
@@ -72294,6 +72303,73 @@ function setDefaultAuthHeaders(state) {
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common.Authorization = state.currentUser ? 'Bearer ' + state.currentUser.token : '';
 }
 
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/car.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/modules/car.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var baseURL = "https://gradiweb.test/api/";
+var state = {
+  cars: []
+};
+var mutations = {
+  SET_CARS: function SET_CARS(state, cars) {
+    state.cars = cars;
+  }
+};
+var getters = {
+  getAllCars: function getAllCars(state) {
+    return state.cars;
+  }
+};
+var actions = {
+  fetchAllCars: function fetchAllCars(_ref) {
+    var state = _ref.state,
+        commit = _ref.commit;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(baseURL, "cars")).then(function (response) {
+      commit('SET_CARS', response.data.data);
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  createCar: function createCar(_ref2, form) {
+    var state = _ref2.state,
+        commit = _ref2.commit;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(baseURL, "cars"), form).then(function (response) {
+      commit('SET_CARS', response.data.data);
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  deleteCar: function deleteCar(_ref3, id) {
+    var commit = _ref3.commit;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("".concat(baseURL, "cars/").concat(id)).then(function (response) {
+      commit('SET_CARS', response.data.data);
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  }
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: state,
