@@ -49,8 +49,6 @@ class RegisterController extends BaseController
 
         try {
             $user = User::create($input);
-
-            $user->sendApiEmailVerificationNotification();
         }
         catch (QueryException $e){
             $error_code = $e->errorInfo[1];

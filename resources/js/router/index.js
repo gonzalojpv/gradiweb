@@ -13,6 +13,7 @@ import SignUp from '../views/auth/SignUp'
 import ForgotPassword from '../views/auth/ForgotPassword'
 /* Account */
 import AccountEdit from '../views/account/Edit'
+import AccountCars from '../views/account/Cars'
 
 Vue.use(VueRouter)
 
@@ -23,9 +24,17 @@ const routes = [
         component: Home
     },
     {
-        path: '/edit',
+        path: '/settings/edit',
         name: 'account.edit',
         component: AccountEdit,
+        meta: {
+            authRequired: true
+        }
+    },
+    {
+        path: '/account/cars',
+        name: 'account.cars',
+        component: AccountCars,
         meta: {
             authRequired: true
         }

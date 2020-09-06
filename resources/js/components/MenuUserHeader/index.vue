@@ -15,6 +15,11 @@
                 :to="{ name: 'account.edit' }">
                 Edit Account
             </router-link>
+            <router-link
+                class="dropdown-item"
+                :to="{ name: 'account.cars' }">
+                My Cars
+            </router-link>
             <div class="dropdown-divider"></div>
             <router-link
                 class="dropdown-item"

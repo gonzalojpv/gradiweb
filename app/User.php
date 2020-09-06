@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'email', 'password', 'last_name'
+        'first_name', 'email', 'password', 'last_name', 'phone_number'
     ];
 
     /**
@@ -37,4 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cars() {
+        return $this->hasMany(Car::class);
+    }
 }

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseController as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\CarResource;
+use Validator;
+use App\Car;
 
 class CarController extends BaseController
 {
@@ -15,7 +18,9 @@ class CarController extends BaseController
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $cars = $user->cars;
+        return $this->sendResponse(CarResource::collection($cars), 'Cars retrieved successfully.');
     }
 
     /**
@@ -36,7 +41,27 @@ class CarController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'plate' => 'required',
+            'brand' => 'required',
+            'type'  => 'required',
+            'model' => 'required',
+        ]);
+
+        if( $validator->fails() )
+            return $this->sendError('Validation Error.', $validator->errors());
+
+        $input = $request->all();
+
+        try {
+            $car = Car::create($input);
+        }
+        catch (QueryException $e){
+            $error_code = $e->errorInfo[1];
+            return $this->sendError('Error', ['error'=>'Create']);
+        }
+
+        return $this->sendResponse(new CarResource($user), 'Car retrieved successfully.');
     }
 
     /**
@@ -79,8 +104,12 @@ class CarController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->delete();
+
+        $user = Auth::user();
+        $cars = $user->cars;
+        return $this->sendResponse(CarResource::collection($cars), 'User cars deleted successfully.');
     }
 }

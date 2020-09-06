@@ -15,8 +15,8 @@ import {
     faUser,
     faCertificate,
     faHistory,
+    faVideo,
 } from '@fortawesome/free-solid-svg-icons'
-import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.use(Vuelidate)
@@ -29,7 +29,7 @@ library.add(
     faChevronRight,
     faChevronLeft,
     faUser,
-    faYoutube,
+    faVideo,
     faCertificate,
     faHistory,
 )
