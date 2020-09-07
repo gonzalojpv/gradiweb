@@ -65,7 +65,7 @@
             </div>
 
             <div class="form-group">
-                <label for="model">Mdelo</label>
+                <label for="model">Modelo</label>
                 <input
                     type="text"
                     id="model"

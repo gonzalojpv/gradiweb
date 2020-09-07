@@ -51277,7 +51277,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "model" } }, [_vm._v("Mdelo")]),
+          _c("label", { attrs: { for: "model" } }, [_vm._v("Modelo")]),
           _vm._v(" "),
           _c("input", {
             directives: [
