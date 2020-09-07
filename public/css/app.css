@@ -13227,6 +13227,47 @@ form.search-box div.form-group input.form-control::placeholder {
   text-transform: uppercase;
 }
 
+form.search-box div.v-select div.vs__dropdown-toggle {
+  background-color: #FCFAF1;
+  border-radius: 8px;
+  min-height: 3rem;
+  border: 1px solid #FFD37B;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle div.vs__selected-options span.vs__selected {
+  font-size: 1rem;
+  color: #1D3741;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle div.vs__selected-options input {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle div.vs__selected-options input::-moz-placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle div.vs__selected-options input:-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle div.vs__selected-options input::placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.v-select div.vs__dropdown-toggle .vs__actions svg {
+  filter: invert(61%) sepia(40%) saturate(1426%) hue-rotate(348deg) brightness(100%) contrast(93%);
+}
+
 .panel {
   margin-bottom: 20px;
   position: relative;

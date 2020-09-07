@@ -40,7 +40,6 @@ const actions = {
             });
     },
     createOwner({ state, commit }, form) {
-        console.log(form);
         return axios.post(`${baseURL}users`, form)
             .then((response) => {
                 return response.data;

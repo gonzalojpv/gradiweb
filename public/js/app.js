@@ -12425,6 +12425,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12433,6 +12437,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       submit: 'Add Car',
       authError: null,
       tryingToLogIn: false,
+      brands: ['Audi', 'Bentley', 'BMW', 'Bugatti', 'Changan', 'GM/Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ferrari', 'Ford', 'Honda', 'Hyundai', 'Nissan'],
       form: {
         alias: null,
         plate: null,
@@ -13056,12 +13061,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      brands: ['Audi', 'Bentley', 'BMW', 'Bugatti', 'Changan', 'GM/Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ferrari', 'Ford', 'Honda', 'Hyundai', 'Nissan'],
       form: {
-        query: null
+        query: null,
+        brand: null
       }
     };
   },
@@ -13076,7 +13091,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   validations: {
     form: {
-      query: {
+      brand: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       }
     }
@@ -13568,6 +13583,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -13581,7 +13602,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       scrollLoad: false,
       form: {
         page: 1,
-        query: null
+        query: null,
+        brand: null
       }
     };
   },
@@ -13590,7 +13612,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     $(window).scroll(function () {
       if (self.scrollLoad && $(window).scrollTop() >= $(document).height() - $(window).height() - 300) {
         self.form.page = self.form.page + 1;
-        console.log('entro');
         self.onSearch();
       }
     });
@@ -13600,6 +13621,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     handleAction: function handleAction(form) {
       this.clearSearch();
       this.form.query = form.query;
+      this.form.brand = form.brand;
       this.onSearch();
     },
     onSearch: function onSearch() {
@@ -51855,46 +51877,37 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "brand" } }, [_vm._v("Marca")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model.trim",
-                value: _vm.$v.form.brand.$model,
-                expression: "$v.form.brand.$model",
-                modifiers: { trim: true }
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("label", { attrs: { for: "brand" } }, [_vm._v("Marca")]),
+            _vm._v(" "),
+            _c("v-select", {
+              staticClass: "form-control",
+              class: { "is-invalid": _vm.$v.form.brand.$error },
+              attrs: { id: "brand", options: _vm.brands },
+              model: {
+                value: _vm.form.brand,
+                callback: function($$v) {
+                  _vm.$set(
+                    _vm.form,
+                    "brand",
+                    typeof $$v === "string" ? $$v.trim() : $$v
+                  )
+                },
+                expression: "form.brand"
               }
-            ],
-            staticClass: "form-control",
-            class: { "is-invalid": _vm.$v.form.brand.$error },
-            attrs: { type: "text", id: "brand" },
-            domProps: { value: _vm.$v.form.brand.$model },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.$v.form.brand,
-                  "$model",
-                  $event.target.value.trim()
-                )
-              },
-              blur: function($event) {
-                return _vm.$forceUpdate()
-              }
-            }
-          }),
-          _vm._v(" "),
-          !_vm.$v.form.brand.required
-            ? _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("\n                Required\n            ")
-              ])
-            : _vm._e()
-        ]),
+            }),
+            _vm._v(" "),
+            !_vm.$v.form.brand.required
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("\n                Required\n            ")
+                ])
+              : _vm._e()
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "type" } }, [_vm._v("Tipo de vehículo")]),
@@ -51948,7 +51961,13 @@ var render = function() {
             ],
             staticClass: "form-control",
             class: { "is-invalid": _vm.$v.form.model.$error },
-            attrs: { type: "text", id: "model" },
+            attrs: {
+              type: "number",
+              placeholder: "YYYY",
+              min: "1990",
+              max: "2020",
+              id: "model"
+            },
             domProps: { value: _vm.$v.form.model.$model },
             on: {
               input: function($event) {
@@ -52680,6 +52699,41 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "row justify-content-center" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-12 col-sm-3" },
+                  [
+                    _c("v-select", {
+                      class: { "is-invalid": _vm.$v.form.brand.$error },
+                      attrs: {
+                        id: "brand",
+                        placeholder: "Marca",
+                        options: _vm.brands
+                      },
+                      model: {
+                        value: _vm.form.brand,
+                        callback: function($$v) {
+                          _vm.$set(
+                            _vm.form,
+                            "brand",
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                          )
+                        },
+                        expression: "form.brand"
+                      }
+                    }),
+                    _vm._v(" "),
+                    !_vm.$v.form.brand.required
+                      ? _c("span", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n                                Requerido.\n                            "
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c("div", { staticClass: "col-12 col-sm-6" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("input", {
@@ -52693,7 +52747,6 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.$v.form.query.$error },
                       attrs: {
                         type: "text",
                         placeholder:
@@ -52715,15 +52768,7 @@ var render = function() {
                           return _vm.$forceUpdate()
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    !_vm.$v.form.query.required
-                      ? _c("span", { staticClass: "invalid-feedback" }, [
-                          _vm._v(
-                            "\n                                    Requerido.\n                                "
-                          )
-                        ])
-                      : _vm._e()
+                    })
                   ])
                 ]),
                 _vm._v(" "),
@@ -53541,6 +53586,18 @@ var render = function() {
           1
         )
       ]),
+      _vm._v(" "),
+      _vm.getResults.length
+        ? _c("div", { staticClass: "row justify-content-center mb-4" }, [
+            _c("div", { staticClass: "col-12 col-sm-8" }, [
+              _c("strong", { staticClass: "text-secondary" }, [
+                _vm._v(
+                  "Total de resultados: (" + _vm._s(_vm.getTotalResult) + ")"
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -74779,7 +74836,7 @@ var carComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_
 var carMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('car', ['fetchAllCars', 'createCar', 'createOwner', 'deleteCar']);
 /* Search */
 
-var searchComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('search', ['getResults'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('search', ['results']));
+var searchComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('search', ['getResults', 'getTotalResult'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('search', ['results']));
 var searchMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('search', ['fetchSearch', 'clearSearch']);
 
 /***/ }),
@@ -75025,7 +75082,6 @@ var actions = {
   createOwner: function createOwner(_ref3, form) {
     var state = _ref3.state,
         commit = _ref3.commit;
-    console.log(form);
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(baseURL, "users"), form).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -75176,6 +75232,9 @@ var mutations = {
 var getters = {
   getResults: function getResults(state) {
     return state.results;
+  },
+  getTotalResult: function getTotalResult() {
+    return state.results.length;
   }
 };
 var actions = {

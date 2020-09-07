@@ -15,16 +15,18 @@ class SearchController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make( $input, [
-            'query' => 'required',
+            'brand' => 'required',
         ]);
 
         if ($validator->fails())
             return $this->sendError('Validation Error.', $validator->errors());
 
-         $cars = Car::select('cars.*')
-            ->where('cars.plate', 'like', '%' . $input['query'] . '%');
+         $cars = Car::select('cars.*')->where('cars.brand', $input['brand']);
 
-        $cars = $cars->rightJoin('users', 'cars.user_id', '=', 'users.id')->orWhere('users.first_name', 'like', '%' . $input['query'] . '%');
+        if ( isset( $input['query'] ) ) {
+            $cars = Car::select('cars.*')->orWhere('cars.plate', 'like', '%' . $input['query'] . '%');
+            $cars = $cars->rightJoin('users', 'cars.user_id', '=', 'users.id')->orWhere('users.first_name', 'like', '%' . $input['query'] . '%');
+        }
 
         $results = $cars->groupBy('cars.id')->paginate(3);
 
