@@ -19,7 +19,7 @@ const getters = {
 }
 
 const actions = {
-    fetchAllCars({ state, commit }) {
+    fetchAllCars({ commit }) {
 
         return axios.get(`${baseURL}cars`)
             .then((response) => {

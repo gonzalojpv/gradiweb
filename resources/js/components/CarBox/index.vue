@@ -6,8 +6,7 @@
                 Activo
             </span>
             <h3 class="text-primary">{{ data.alias }}</h3>
-            <small>fecha registro</small>
-            <p>otro</p>
+            <small>{{ data.created_at }}</small>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <article class="car-detail">

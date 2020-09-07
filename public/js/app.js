@@ -12304,7 +12304,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     data: Object
@@ -13440,6 +13439,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CarBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/CarBox */ "./resources/js/components/CarBox/index.vue");
+/* harmony import */ var _store_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../store/helper */ "./resources/js/store/helper.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -13471,27 +13477,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     CarBox: _components_CarBox__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  data: function data() {
-    return {
-      items: [{
-        alias: 'asas',
-        plate: '12133',
-        brand: 'asas',
-        type: 'asas',
-        model: '2020'
-      }, {
-        alias: 'asas',
-        plate: '12133',
-        brand: 'asas',
-        type: 'asas',
-        model: '2020'
-      }]
-    };
-  }
+  mounted: function mounted() {
+    this.fetchAllCars();
+  },
+  computed: _objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["carComputed"]),
+  methods: _objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["carMethods"])
 });
 
 /***/ }),
@@ -51034,9 +51029,7 @@ var render = function() {
         _vm._v(_vm._s(_vm.data.alias))
       ]),
       _vm._v(" "),
-      _c("small", [_vm._v("fecha registro")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("otro")]),
+      _c("small", [_vm._v(_vm._s(_vm.data.created_at))]),
       _vm._v(" "),
       _c("ul", { staticClass: "list-group list-group-flush" }, [
         _c("li", { staticClass: "list-group-item" }, [
@@ -52835,7 +52828,7 @@ var render = function() {
             _c(
               "div",
               { staticClass: "row" },
-              _vm._l(_vm.items, function(item, index) {
+              _vm._l(_vm.getAllCars, function(item, index) {
                 return _c(
                   "div",
                   { key: index, staticClass: "col-12 col-sm-4" },
@@ -73526,8 +73519,7 @@ var getters = {
 };
 var actions = {
   fetchAllCars: function fetchAllCars(_ref) {
-    var state = _ref.state,
-        commit = _ref.commit;
+    var commit = _ref.commit;
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(baseURL, "cars")).then(function (response) {
       commit('SET_CARS', response.data.data);
       return response.data;

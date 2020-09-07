@@ -15,7 +15,7 @@
 
                     <div class="row">
                         <div
-                            v-for="(item, index) in items"
+                            v-for="(item, index) in getAllCars"
                             :key="index"
                             class="col-12 col-sm-4">
                             <CarBox :data="item" />
@@ -30,30 +30,20 @@
 
 <script>
     import CarBox from '../../components/CarBox'
+    import { carComputed, carMethods } from '../../store/helper'
 
     export default {
         components: {
             CarBox
         },
-        data() {
-            return {
-                items: [
-                    {
-                        alias: 'asas',
-                        plate: '12133',
-                        brand: 'asas',
-                        type: 'asas',
-                        model:'2020'
-                    },
-                    {
-                        alias: 'asas',
-                        plate: '12133',
-                        brand: 'asas',
-                        type: 'asas',
-                        model:'2020'
-                    },
-                ]
-            }
+        mounted() {
+            this.fetchAllCars();
+        },
+        computed: {
+            ...carComputed,
+        },
+        methods: {
+            ...carMethods,
         }
     }
 </script>
