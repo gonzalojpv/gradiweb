@@ -59,6 +59,7 @@
         methods: {
             ...searchMethods,
             handleAction(form) {
+                this.clearSearch();
                 this.form.query = form.query;
                 this.onSearch();
             },

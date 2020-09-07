@@ -9,26 +9,26 @@
             <font-awesome-icon icon="user-tie" />
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-header"><strong>Hi {{ user.first_name }}</strong></div>
+            <div class="dropdown-header"><strong>Hola {{ user.first_name }}</strong></div>
             <router-link
                 class="dropdown-item"
                 :to="{ name: 'account.edit' }">
-                Edit Account
+                Editar datos
             </router-link>
             <router-link
                 class="dropdown-item"
                 :to="{ name: 'car.create' }">
-                Add Car
+                Agregar nuevo carro
             </router-link>
             <router-link
                 class="dropdown-item"
                 :to="{ name: 'car.list' }">
-                My Cars
+                Mis carros
             </router-link>
             <div class="dropdown-divider"></div>
             <router-link
                 class="dropdown-item"
-                :to="{ name: 'logout' }">Logout</router-link>
+                :to="{ name: 'logout' }">Salir</router-link>
         </div>
     </div>
 </template>

@@ -13590,6 +13590,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["searchComputed"]),
   methods: _objectSpread(_objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["searchMethods"]), {}, {
     handleAction: function handleAction(form) {
+      this.clearSearch();
       this.form.query = form.query;
       this.onSearch();
     },
@@ -52209,7 +52210,7 @@ var render = function() {
       { staticClass: "dropdown-menu dropdown-menu-right" },
       [
         _c("div", { staticClass: "dropdown-header" }, [
-          _c("strong", [_vm._v("Hi " + _vm._s(_vm.user.first_name))])
+          _c("strong", [_vm._v("Hola " + _vm._s(_vm.user.first_name))])
         ]),
         _vm._v(" "),
         _c(
@@ -52218,7 +52219,7 @@ var render = function() {
             staticClass: "dropdown-item",
             attrs: { to: { name: "account.edit" } }
           },
-          [_vm._v("\n            Edit Account\n        ")]
+          [_vm._v("\n            Editar datos\n        ")]
         ),
         _vm._v(" "),
         _c(
@@ -52227,13 +52228,13 @@ var render = function() {
             staticClass: "dropdown-item",
             attrs: { to: { name: "car.create" } }
           },
-          [_vm._v("\n            Add Car\n        ")]
+          [_vm._v("\n            Agregar nuevo carro\n        ")]
         ),
         _vm._v(" "),
         _c(
           "router-link",
           { staticClass: "dropdown-item", attrs: { to: { name: "car.list" } } },
-          [_vm._v("\n            My Cars\n        ")]
+          [_vm._v("\n            Mis carros\n        ")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dropdown-divider" }),
@@ -52241,7 +52242,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "dropdown-item", attrs: { to: { name: "logout" } } },
-          [_vm._v("Logout")]
+          [_vm._v("Salir")]
         )
       ],
       1
