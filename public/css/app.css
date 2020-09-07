@@ -13044,10 +13044,15 @@ article.car-box div.car-box-content p {
 
 article.car-box div.car-box-content .list-group li.list-group-item {
   background-color: transparent;
+  padding: 0.25rem;
 }
 
 article.car-box div.car-box-content .list-group li.list-group-item strong {
   font-weight: 600;
+}
+
+article.car-box div.car-box-content .list-group li.list-group-item p {
+  margin: 0;
 }
 
 article.car-box div.car-box-footer {

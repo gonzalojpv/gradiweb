@@ -7,11 +7,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Car::class, function (Faker $faker) {
     return [
-        'alias' => implode(" ", $faker->words(1)),
-        'plate' => $faker->userName(1),
-        'brand' => implode(" ", $faker->words(1)),
-        'type' => implode(" ", $faker->words(1)),
-        'model' => $faker->year(1),
+        'alias' => $faker->word(),
+        'plate' => $faker->swiftBicNumber(),
+        'brand' => $faker->word(),
+        'type' => $faker->word(),
+        'model' => $faker->year(),
         'user_id' => rand(1, 10),
     ];
 });

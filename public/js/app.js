@@ -12304,6 +12304,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     data: Object
@@ -12998,6 +12999,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -13038,7 +13041,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        query: null
+      }
+    };
+  },
+  methods: {
+    onSubmit: function onSubmit(evt) {
+      this.$v.form.$touch();
+
+      if (!this.$v.form.$invalid) {
+        this.$emit('onSearch', this.form);
+      }
+    }
+  },
+  validations: {
+    form: {
+      query: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -13492,6 +13527,26 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/SearchBox */ "./resources/js/components/SearchBox/index.vue");
+/* harmony import */ var _store_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/helper */ "./resources/js/store/helper.js");
+/* harmony import */ var _components_CarBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CarBox */ "./resources/js/components/CarBox/index.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -13506,10 +13561,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    SearchBox: _components_SearchBox__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+    SearchBox: _components_SearchBox__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CarBox: _components_CarBox__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      scrollLoad: false,
+      form: {
+        page: 1,
+        query: null
+      }
+    };
+  },
+  mounted: function mounted() {
+    var self = this;
+    $(window).scroll(function () {
+      if (self.scrollLoad && $(window).scrollTop() >= $(document).height() - $(window).height() - 300) {
+        self.form.page = self.form.page + 1;
+        console.log('entro');
+        self.onSearch();
+      }
+    });
+  },
+  computed: _objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["searchComputed"]),
+  methods: _objectSpread(_objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["searchMethods"]), {}, {
+    handleAction: function handleAction(form) {
+      this.form.query = form.query;
+      this.onSearch();
+    },
+    onSearch: function onSearch() {
+      var _this = this;
+
+      this.scrollLoad = false;
+      this.fetchSearch(this.form).then(function (Response) {
+        console.log(Response);
+        _this.scrollLoad = Response.data.length;
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -18456,7 +18549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);", ""]);
 
 // module
-exports.push([module.i, "/** Bootstrap navbar fix (https://git.io/fADqW) */\n/** Fonts **/\nsection.search[data-v-e7b7e8f2] {\n  position: relative;\n  height: auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding-bottom: 1rem;\n  padding-top: 1rem;\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/bg/search.jpg */ "./resources/images/bg/search.jpg")) + ");\n}\n@media (min-width: 768px) {\nsection.search[data-v-e7b7e8f2] {\n    padding-top: 6rem;\n    height: 100%;\n    min-height: 100vh;\n}\n}", ""]);
+exports.push([module.i, "/** Bootstrap navbar fix (https://git.io/fADqW) */\n/** Fonts **/\nsection.search[data-v-e7b7e8f2] {\n  position: relative;\n  height: auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding-bottom: 1rem;\n  padding-top: 1rem;\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/bg/search.jpg */ "./resources/images/bg/search.jpg")) + ");\n}\n@media (min-width: 768px) {\nsection.search[data-v-e7b7e8f2] {\n    padding-top: 6rem;\n    height: 100%;\n    min-height: 100vh;\n}\n}\nsection.search div.section-results[data-v-e7b7e8f2] {\n  position: relative;\n}\nsection.search div.section-results ul[data-v-e7b7e8f2] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\nsection.search div.section-results ul li[data-v-e7b7e8f2] {\n  display: block;\n  margin-bottom: 1rem;\n}", ""]);
 
 // exports
 
@@ -51215,6 +51308,13 @@ var render = function() {
       _vm._v(" "),
       _c("small", [_vm._v(_vm._s(_vm.data.created_at))]),
       _vm._v(" "),
+      _c("p", [
+        _c("strong", [_vm._v("Propietario:")]),
+        _vm._v(
+          " " + _vm._s(_vm.data.user.first_name + " " + _vm.data.user.last_name)
+        )
+      ]),
+      _vm._v(" "),
       _c("ul", { staticClass: "list-group list-group-flush" }, [
         _c("li", { staticClass: "list-group-item" }, [
           _c("article", { staticClass: "car-detail" }, [
@@ -51250,7 +51350,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "car-box-footer" }, [
+    return _c("div", { staticClass: "car-box-footer d-none" }, [
       _c("div", { staticClass: "car-actions" }, [
         _c("div", { staticClass: "d-flex" }, [
           _c(
@@ -52187,7 +52287,58 @@ var render = function() {
                 }
               }
             },
-            [_vm._m(1)]
+            [
+              _c("div", { staticClass: "row justify-content-center" }, [
+                _c("div", { staticClass: "col-12 col-sm-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.trim",
+                          value: _vm.form.query,
+                          expression: "form.query",
+                          modifiers: { trim: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.$v.form.query.$error },
+                      attrs: {
+                        type: "text",
+                        placeholder:
+                          "Escribe en nombre del propietario o placa..."
+                      },
+                      domProps: { value: _vm.form.query },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.form,
+                            "query",
+                            $event.target.value.trim()
+                          )
+                        },
+                        blur: function($event) {
+                          return _vm.$forceUpdate()
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    !_vm.$v.form.query.required
+                      ? _c("span", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n                                    Requerido.\n                                "
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ]
           )
         ])
       ])
@@ -52211,30 +52362,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-12 col-sm-6" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              placeholder: "Escribe en nombre del propietario o placa..."
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-sm-1" }, [
-        _c("div", { staticClass: "form-group text-center" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn bg-primary text-white btn-submit",
-              attrs: { type: "submit" }
-            },
-            [_c("span", { staticClass: "icon search color-white" })]
-          )
-        ])
+    return _c("div", { staticClass: "col-12 col-sm-1" }, [
+      _c("div", { staticClass: "form-group text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn bg-primary text-white btn-submit",
+            attrs: { type: "submit" }
+          },
+          [_c("span", { staticClass: "icon search color-white" })]
+        )
       ])
     ])
   }
@@ -53006,8 +53143,27 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid caption" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [_c("SearchBox")], 1)
-      ])
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [_c("SearchBox", { on: { onSearch: _vm.handleAction } })],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.getResults, function(car, index) {
+          return _c(
+            "div",
+            { key: index, staticClass: "col-12 col-sm-3" },
+            [_c("CarBox", { attrs: { data: car } })],
+            1
+          )
+        }),
+        0
+      )
     ])
   ])
 }
@@ -73638,7 +73794,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!**************************************!*\
   !*** ./resources/js/store/helper.js ***!
   \**************************************/
-/*! exports provided: authComputed, authMethods, contactComputed, contactMethods, feedbackComputed, feedbackMethods, carComputed, carMethods */
+/*! exports provided: authComputed, authMethods, contactComputed, contactMethods, feedbackComputed, feedbackMethods, carComputed, carMethods, searchComputed, searchMethods */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73651,6 +73807,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedbackMethods", function() { return feedbackMethods; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "carComputed", function() { return carComputed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "carMethods", function() { return carMethods; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchComputed", function() { return searchComputed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchMethods", function() { return searchMethods; });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -73677,6 +73835,10 @@ var feedbackMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('f
 
 var carComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('car', ['getAllCars'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('car', ['cars']));
 var carMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('car', ['fetchAllCars', 'createCar', 'deleteCar']);
+/* Search */
+
+var searchComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('search', ['getResults'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('search', ['results']));
+var searchMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('search', ['fetchSearch', 'clearSearch']);
 
 /***/ }),
 
@@ -73697,6 +73859,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/contact */ "./resources/js/store/modules/contact.js");
 /* harmony import */ var _modules_feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/feedback */ "./resources/js/store/modules/feedback.js");
 /* harmony import */ var _modules_car__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/car */ "./resources/js/store/modules/car.js");
+/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/search */ "./resources/js/store/modules/search.js");
+
 
 
 
@@ -73708,7 +73872,8 @@ var modules = {
   auth: _modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"],
   contact: _modules_contact__WEBPACK_IMPORTED_MODULE_3__["default"],
   feedback: _modules_feedback__WEBPACK_IMPORTED_MODULE_4__["default"],
-  car: _modules_car__WEBPACK_IMPORTED_MODULE_5__["default"]
+  car: _modules_car__WEBPACK_IMPORTED_MODULE_5__["default"],
+  search: _modules_search__WEBPACK_IMPORTED_MODULE_6__["default"]
 };
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: modules
@@ -74018,6 +74183,64 @@ var actions = {
     })["catch"](function (Error) {
       return Promise.reject(Error);
     });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/search.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/search.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var baseURL = "https://gradiweb.test/api/";
+var state = {
+  results: []
+};
+var mutations = {
+  SET_RESULTS: function SET_RESULTS(state, results) {
+    results.forEach(function (item) {
+      state.results.push(item);
+    });
+  },
+  CLEAR_RESULTS: function CLEAR_RESULTS(state) {
+    state.results = [];
+  }
+};
+var getters = {
+  getResults: function getResults(state) {
+    return state.results;
+  }
+};
+var actions = {
+  fetchSearch: function fetchSearch(_ref, params) {
+    var commit = _ref.commit;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(baseURL, "search"), {
+      params: params
+    }).then(function (response) {
+      commit("SET_RESULTS", response.data.data);
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  clearSearch: function clearSearch(_ref2) {
+    var commit = _ref2.commit;
+    commit("CLEAR_RESULTS");
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

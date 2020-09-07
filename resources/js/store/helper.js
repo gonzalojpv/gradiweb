@@ -41,3 +41,13 @@ export const carMethods = mapActions('car', [
     'createCar',
     'deleteCar',
 ]);
+/* Search */
+export const searchComputed = {
+    ...mapGetters('search', ['getResults']),
+    ...mapState('search', ['results']),
+};
+
+export const searchMethods = mapActions('search', [
+    'fetchSearch',
+    'clearSearch',
+]);

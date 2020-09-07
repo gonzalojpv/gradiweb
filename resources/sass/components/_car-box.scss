@@ -46,9 +46,14 @@ article.car-box {
         .list-group {
             li.list-group-item {
                 background-color: transparent;
+                padding: 0.25rem;
 
                 strong {
                     font-weight: 600;
+                }
+
+                p {
+                    margin: 0;
                 }
             }
         }

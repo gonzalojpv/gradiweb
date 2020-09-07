@@ -17,8 +17,15 @@
                                 <div class="form-group">
                                     <input
                                         type="text"
+                                        v-model.trim="form.query"
+                                        :class="{ 'is-invalid': $v.form.query.$error }"
                                         placeholder="Escribe en nombre del propietario o placa..."
                                         class="form-control">
+                                    <span
+                                        v-if="!$v.form.query.required"
+                                        class="invalid-feedback">
+                                        Requerido.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-1">
@@ -39,8 +46,32 @@
 </template>
 
 <script>
-    export default {
+    import { required } from 'vuelidate/lib/validators'
 
+    export default {
+        data() {
+            return {
+                form: {
+                    query: null
+                }
+            }
+        },
+        methods: {
+            onSubmit(evt) {
+                this.$v.form.$touch();
+
+                if ( ! this.$v.form.$invalid ) {
+                    this.$emit('onSearch', this.form);
+                }
+            }
+        },
+        validations: {
+            form: {
+                query: {
+                    required
+                },
+            }
+        }
     }
 </script>
 

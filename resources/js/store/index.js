@@ -5,6 +5,7 @@ import auth from './modules/auth'
 import contact from './modules/contact'
 import feedback from './modules/feedback'
 import car from './modules/car'
+import search from './modules/search'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ const modules = {
     contact,
     feedback,
     car,
+    search,
 };
 
 const store = new Vuex.Store({

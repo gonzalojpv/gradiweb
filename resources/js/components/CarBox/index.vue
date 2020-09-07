@@ -7,6 +7,7 @@
             </span>
             <h3 class="text-primary">{{ data.alias }}</h3>
             <small>{{ data.created_at }}</small>
+            <p><strong>Propietario:</strong> {{ data.user.first_name + ' ' + data.user.last_name }}</p>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <article class="car-detail">
@@ -28,7 +29,7 @@
                 </li>
             </ul>
         </div>
-        <div class="car-box-footer">
+        <div class="car-box-footer d-none">
             <div class="car-actions">
                 <div class="d-flex">
                      <button
