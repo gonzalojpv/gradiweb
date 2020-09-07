@@ -1,27 +1,25 @@
 <template>
-    <section class="page cars">
-        <div class="texture-bg"></div>
+    <section class="page create-car">
         <div class="container caption h-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-12">
-
                     <div class="row">
                         <div class="col">
-                            <h2>Cars</h2>
+                            <h2>Add new car</h2>
                             <hr>
                             <p>Phasellus ante pellentesque erat cum risus consequat imperdiet aliquam</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div
-                            v-for="(item, index) in items"
-                            :key="index"
-                            class="col-12 col-sm-4">
-                            <CarBox :data="item" />
+                        <div class="col-12 col-sm-6">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <CarForm/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -29,31 +27,11 @@
 </template>
 
 <script>
-    import CarBox from '../../components/CarBox'
+    import CarForm from '../../components/CarForm'
 
     export default {
         components: {
-            CarBox
-        },
-        data() {
-            return {
-                items: [
-                    {
-                        alias: 'asas',
-                        plate: '12133',
-                        brand: 'asas',
-                        type: 'asas',
-                        model:'2020'
-                    },
-                    {
-                        alias: 'asas',
-                        plate: '12133',
-                        brand: 'asas',
-                        type: 'asas',
-                        model:'2020'
-                    },
-                ]
-            }
+            CarForm,
         }
     }
 </script>
@@ -61,10 +39,10 @@
 <style lang="scss" scoped>
     @import '../../../sass/_variables';
 
-    section.cars {
+    section.create-car {
         position: relative;
         height: auto;
-        background-image: url('../../../images/bg/create-car.jpg');
+        background-image: url('../../../images/bg/login.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

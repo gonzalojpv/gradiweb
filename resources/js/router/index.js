@@ -14,6 +14,9 @@ import ForgotPassword from '../views/auth/ForgotPassword'
 /* Account */
 import AccountEdit from '../views/account/Edit'
 import AccountCars from '../views/account/Cars'
+/* Car */
+import CarIndex from '../views/car/Index'
+import CarCreate from '../views/car/Create'
 
 Vue.use(VueRouter)
 
@@ -27,14 +30,6 @@ const routes = [
         path: '/settings/edit',
         name: 'account.edit',
         component: AccountEdit,
-        meta: {
-            authRequired: true
-        }
-    },
-    {
-        path: '/account/cars',
-        name: 'account.cars',
-        component: AccountCars,
         meta: {
             authRequired: true
         }
@@ -110,6 +105,31 @@ const routes = [
         path: '/term-conditions',
         name: 'term-conditions',
         component: TermConditions,
+    },
+    {
+        path: '/cars',
+        component: CarIndex,
+        meta: {
+            authRequired: true,
+        },
+        children: [
+            {
+                path: 'create',
+                name: 'car.create',
+                component: CarCreate,
+                meta: {
+                    authRequired: true,
+                },
+            },
+            {
+                path: 'list',
+                name: 'car.list',
+                component: AccountCars,
+                meta: {
+                    authRequired: true
+                }
+            },
+        ]
     },
     {
         path: '/404',

@@ -17,7 +17,12 @@
             </router-link>
             <router-link
                 class="dropdown-item"
-                :to="{ name: 'account.cars' }">
+                :to="{ name: 'car.create' }">
+                Add Car
+            </router-link>
+            <router-link
+                class="dropdown-item"
+                :to="{ name: 'car.list' }">
                 My Cars
             </router-link>
             <div class="dropdown-divider"></div>

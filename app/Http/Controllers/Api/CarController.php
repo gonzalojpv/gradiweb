@@ -54,7 +54,17 @@ class CarController extends BaseController
         $input = $request->all();
 
         try {
-            $car = Car::create($input);
+            $user = Auth::user();
+            $car = new Car;
+
+            $car->alias = $input['alias'];
+            $car->plate = $input['plate'];
+            $car->brand = $input['brand'];
+            $car->type = $input['type'];
+            $car->model = $input['model'];
+            $car->user_id = $user->id;
+
+            $car->save();
         }
         catch (QueryException $e){
             $error_code = $e->errorInfo[1];

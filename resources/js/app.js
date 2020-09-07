@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import { store } from './store'
 import Vuelidate from 'vuelidate'
+import vSelect from 'vue-select'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -34,7 +35,7 @@ library.add(
     faHistory,
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
+Vue.component('v-select', vSelect)
 Vue.use(Vuelidate)
 
 import 'bootstrap'
