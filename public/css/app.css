@@ -12812,6 +12812,47 @@ form.form-1 .btn {
   font-family: "Exo 2", sans-serif;
 }
 
+@media (min-width: 768px) {
+  form.search-box div.form-group {
+    margin-bottom: 0;
+  }
+}
+
+form.search-box div.form-group .btn-submit {
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+form.search-box div.form-group input.form-control {
+  height: 3rem;
+  background-color: #FCFAF1;
+  border: 1px solid #FFD37B;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+form.search-box div.form-group input.form-control::-moz-placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.form-group input.form-control:-ms-input-placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form.search-box div.form-group input.form-control::placeholder {
+  opacity: 0.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .panel {
   margin-bottom: 20px;
   position: relative;

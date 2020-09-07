@@ -40,7 +40,7 @@
                             <li class="menu-item nav-item">
                                 <router-link
                                     class="nav-link"
-                                    :to="{ name: 'login' }">Reservar</router-link>
+                                    :to="{ name: 'search' }">Buscar</router-link>
                             </li>
                             <li
                                 v-if="!loggedIn"
