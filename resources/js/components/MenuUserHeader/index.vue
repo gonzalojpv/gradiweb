@@ -16,11 +16,19 @@
                 Editar datos
             </router-link>
             <router-link
+                v-if="user.admin"
+                class="dropdown-item"
+                :to="{ name: 'car.owner' }">
+                Agregar Propietario
+            </router-link>
+            <router-link
+                v-if="!user.admin"
                 class="dropdown-item"
                 :to="{ name: 'car.create' }">
                 Agregar nuevo carro
             </router-link>
             <router-link
+                v-if="!user.admin"
                 class="dropdown-item"
                 :to="{ name: 'car.list' }">
                 Mis carros

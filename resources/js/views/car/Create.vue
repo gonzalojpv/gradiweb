@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="row">
                         <div class="col">
-                            <h2>Add new car</h2>
+                            <h2>Agregar vehículo</h2>
                             <hr>
                             <p>Phasellus ante pellentesque erat cum risus consequat imperdiet aliquam</p>
                         </div>
