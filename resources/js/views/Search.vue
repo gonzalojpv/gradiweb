@@ -68,13 +68,13 @@
                 this.clearSearch();
                 this.form.query = form.query;
                 this.form.brand = form.brand;
+                this.form.page = 1;
                 this.onSearch();
             },
             onSearch() {
                 this.scrollLoad = false;
 
                 this.fetchSearch(this.form).then((Response) => {
-                    console.log(Response);
                     this.scrollLoad = Response.data.length;
                 });
             }

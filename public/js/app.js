@@ -13622,6 +13622,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.clearSearch();
       this.form.query = form.query;
       this.form.brand = form.brand;
+      this.form.page = 1;
       this.onSearch();
     },
     onSearch: function onSearch() {
@@ -13629,7 +13630,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.scrollLoad = false;
       this.fetchSearch(this.form).then(function (Response) {
-        console.log(Response);
         _this.scrollLoad = Response.data.length;
       });
     }
