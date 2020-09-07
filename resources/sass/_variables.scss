@@ -11,8 +11,10 @@ $navbar-dark-toggler-icon-bg: none;
 $navbar-light-toggler-icon-bg: none;
 
 /** Fonts **/
-$font-header: "Exo 2", sans-serif;
-$font-family-base: "Roboto", sans-serif;
+$font-header: "Exo 2",
+sans-serif;
+$font-family-base: "Roboto",
+sans-serif;
 
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
@@ -38,5 +40,14 @@ $container-max-widths: (sm: 540px,
     xl: 1140px,
     xxl: 1440px,
 ) !default;
+
+//  Borders
+$vs-border-width: 0 !default;
+$vs-border-style: none !default;
+$vs-border-radius: 20px !default;
+$vs-border-color: transparent !default;
+$vs-state-active-bg: #FCFAF1 !default;
+$vs-state-disabled-bg: transparent !default;
+$vs-state-active-color: #9F4440 !default;
 
 @import '~bootstrap/scss/mixins/_breakpoints'

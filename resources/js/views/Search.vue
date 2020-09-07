@@ -9,7 +9,13 @@
                         @onSearch="handleAction"/>
                 </div>
             </div>
-
+            <div
+                v-if="getResults.length"
+                class="row justify-content-center mb-4">
+                <div class="col-12 col-sm-8">
+                    <strong class="text-secondary">Total de resultados: ({{ getTotalResult }})</strong>
+                </div>
+            </div>
             <div class="row">
                 <div
                     v-for="(car, index) in getResults"
@@ -39,6 +45,7 @@
                 form: {
                     page: 1,
                     query: null,
+                    brand: null,
                 }
             }
         },
@@ -48,7 +55,6 @@
 
                 if (self.scrollLoad && $(window).scrollTop() >= $(document).height() - $(window).height() - 300) {
                     self.form.page = self.form.page + 1;
-                    console.log('entro');
                     self.onSearch();
                 }
             });
@@ -61,13 +67,14 @@
             handleAction(form) {
                 this.clearSearch();
                 this.form.query = form.query;
+                this.form.brand = form.brand;
+                this.form.page = 1;
                 this.onSearch();
             },
             onSearch() {
                 this.scrollLoad = false;
 
                 this.fetchSearch(this.form).then((Response) => {
-                    console.log(Response);
                     this.scrollLoad = Response.data.length;
                 });
             }

@@ -21,6 +21,9 @@ const getters = {
     getResults(state) {
         return state.results;
     },
+    getTotalResult() {
+        return state.results.length;
+    }
 }
 
 const actions = {

@@ -13,19 +13,27 @@
                         class="search-box"
                         @submit.prevent="onSubmit">
                         <div class="row justify-content-center">
+                            <div class="col-12 col-sm-3">
+                                <v-select
+                                    id="brand"
+                                    v-model.trim="form.brand"
+                                    placeholder="Marca"
+                                    :class="{ 'is-invalid': $v.form.brand.$error }"
+                                    :options="brands">
+                                </v-select>
+                                <span
+                                    v-if="!$v.form.brand.required"
+                                    class="invalid-feedback">
+                                    Requerido.
+                                </span>
+                            </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <input
                                         type="text"
                                         v-model.trim="form.query"
-                                        :class="{ 'is-invalid': $v.form.query.$error }"
                                         placeholder="Escribe en nombre del propietario o placa..."
                                         class="form-control">
-                                    <span
-                                        v-if="!$v.form.query.required"
-                                        class="invalid-feedback">
-                                        Requerido.
-                                    </span>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-1">
@@ -51,8 +59,10 @@
     export default {
         data() {
             return {
+                brands: [ 'Audi', 'Bentley', 'BMW', 'Bugatti', 'Changan', 'GM/Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ferrari', 'Ford', 'Honda', 'Hyundai', 'Nissan' ],
                 form: {
-                    query: null
+                    query: null,
+                    brand: null,
                 }
             }
         },
@@ -67,7 +77,7 @@
         },
         validations: {
             form: {
-                query: {
+                brand: {
                     required
                 },
             }

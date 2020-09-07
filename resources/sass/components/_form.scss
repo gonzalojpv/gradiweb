@@ -84,5 +84,41 @@ form {
                 }
             }
         }
+
+        div.v-select {
+            div.vs__dropdown-toggle {
+                background-color: map-get($theme-colors, white);
+                border-radius: 8px;
+                min-height: 3rem;
+                border: 1px solid map-get($theme-colors, secondary);
+
+                div.vs__selected-options {
+                    span.vs__selected {
+                        font-size: 1rem;
+                        color: map-get($theme-colors, dark);
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+
+                    input {
+                        font-size: 1rem;
+                        text-transform: uppercase;
+
+                        &::placeholder {
+                            color: map-get($theme-colors, gray);
+                            opacity: 0.5;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+                .vs__actions {
+                    svg {
+                        filter: invert(61%) sepia(40%) saturate(1426%) hue-rotate(348deg) brightness(100%) contrast(93%);
+                    }
+                }
+            }
+        }
     }
 }

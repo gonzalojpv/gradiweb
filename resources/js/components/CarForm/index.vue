@@ -36,12 +36,13 @@
 
             <div class="form-group">
                 <label for="brand">Marca</label>
-                <input
-                    type="text"
+                <v-select
                     id="brand"
-                    v-model.trim="$v.form.brand.$model"
+                    v-model.trim="form.brand"
+                    class="form-control"
                     :class="{ 'is-invalid': $v.form.brand.$error }"
-                    class="form-control">
+                    :options="brands">
+                </v-select>
                 <div
                     v-if="!$v.form.brand.required"
                     class="invalid-feedback">
@@ -67,7 +68,10 @@
             <div class="form-group">
                 <label for="model">Modelo</label>
                 <input
-                    type="text"
+                    type="number"
+                    placeholder="YYYY"
+                    min="1990"
+                    max="2020"
                     id="model"
                     v-model.trim="$v.form.model.$model"
                     :class="{ 'is-invalid': $v.form.model.$error }"
@@ -102,6 +106,7 @@
                 submit        : 'Add Car',
                 authError     : null,
                 tryingToLogIn : false,
+                brands: [ 'Audi', 'Bentley', 'BMW', 'Bugatti', 'Changan', 'GM/Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ferrari', 'Ford', 'Honda', 'Hyundai', 'Nissan' ],
                 form: {
                     alias: null,
                     plate: null,

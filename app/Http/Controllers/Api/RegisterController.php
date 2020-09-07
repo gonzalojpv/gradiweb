@@ -45,7 +45,6 @@ class RegisterController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $input['provider'] = 'web';
 
         try {
             $user = User::create($input);

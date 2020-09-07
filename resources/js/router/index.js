@@ -17,6 +17,7 @@ import AccountCars from '../views/account/Cars'
 /* Car */
 import CarIndex from '../views/car/Index'
 import CarCreate from '../views/car/Create'
+import OwnerCreate from '../views/car/Owner'
 
 Vue.use(VueRouter)
 
@@ -125,6 +126,14 @@ const routes = [
                 path: 'list',
                 name: 'car.list',
                 component: AccountCars,
+                meta: {
+                    authRequired: true
+                }
+            },
+            {
+                path: 'owner',
+                name: 'car.owner',
+                component: OwnerCreate,
                 meta: {
                     authRequired: true
                 }
