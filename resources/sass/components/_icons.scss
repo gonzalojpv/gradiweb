@@ -1,0 +1,54 @@
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+
+    &.carousel-control-next-icon {
+        background-image: url('../../images/icon/icon-arrow-right.svg');
+    }
+
+    &.carousel-control-prev-icon {
+        background-image: url(../../images/icon/icon-arrow-left.svg);
+    }
+
+    &.close-icon {
+        background-image: url(../../images/icon/icon-close.svg);
+    }
+
+    &.arrow-down {
+        background-image: url(../../images/icon/icon-down.svg);
+    }
+
+    &.facebook {
+        background-image: url(../../images/icon/icon-facebook.svg);
+    }
+
+    &.navbar-toggler-icon {
+        background-image: url(../../images/icon/icon-hamburger.svg);
+    }
+
+    &.arrow-up {
+        background-image: url(../../images/icon/icon-up.svg);
+    }
+
+    &.search {
+        background-image: url(../../images/icon/icon-search.svg);
+    }
+
+    &.login {
+        background-image: url('../../images/icon/login.svg');
+    }
+}
+
+.color-primary {
+    filter: invert(48%) sepia(18%) saturate(5303%) hue-rotate(27deg) brightness(94%) contrast(94%);
+}
+
+.color-black {
+    filter: invert(3%) sepia(6%) saturate(3492%) hue-rotate(182deg) brightness(92%) contrast(103%);
+}
+
+.color-white {
+    filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(219deg) brightness(104%) contrast(100%);
+}

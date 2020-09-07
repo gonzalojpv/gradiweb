@@ -1,0 +1,22 @@
+// Fonts
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import "common/global";
+
+
+@import "components/btn";
+@import "components/slider";
+@import "components/feedback";
+@import "components/form";
+@import "components/panel";
+@import "components/icons";
+@import "components/separator";
+@import "components/car-box";
+
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/page";
+@import "layouts/about";
