@@ -13915,7 +13915,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
-//
+/* harmony import */ var _store_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../store/helper */ "./resources/js/store/helper.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -14123,6 +14129,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -14143,11 +14150,36 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  methods: {
-    onSubmit: function onSubmit() {
-      console.log('onSubmit');
+  methods: _objectSpread(_objectSpread({}, _store_helper__WEBPACK_IMPORTED_MODULE_1__["carMethods"]), {}, {
+    clearForm: function clearForm() {
+      this.form.alias = null;
+      this.form.plate = null;
+      this.form.brand = null;
+      this.form.type = null;
+      this.form.model = null;
+      this.form.first_name = '';
+      this.form.last_name = '';
+      this.form.email = null;
+      this.form.phone_number = null;
+      this.$v.form.$reset();
+    },
+    onSubmit: function onSubmit(evt) {
+      var _this = this;
+
+      evt.preventDefault();
+      this.$v.form.$touch();
+
+      if (!this.$v.form.$invalid) {
+        this.createOwner(this.form).then(function (Response) {
+          if (Response.success) {
+            _this.clearForm();
+
+            swal("Good!", 'El propietarios se registro exitasomente.', 'success');
+          }
+        });
+      }
     }
-  },
+  }),
   validations: {
     form: {
       alias: {
@@ -54184,7 +54216,7 @@ var render = function() {
                     !_vm.$v.form.email.required
                       ? _c("span", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                                    Required\n                                "
+                            "\n                                    Requerido\n                                "
                           )
                         ])
                       : _vm._e()
@@ -54229,7 +54261,7 @@ var render = function() {
                     !_vm.$v.form.phone_number.required
                       ? _c("span", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                                    Required\n                                "
+                            "\n                                    Requerido\n                                "
                           )
                         ])
                       : _vm._e()
@@ -54285,7 +54317,7 @@ var render = function() {
                       !_vm.$v.form.alias.required
                         ? _c("div", { staticClass: "invalid-feedback" }, [
                             _vm._v(
-                              "\n                                        Required\n                                    "
+                              "\n                                        Requerido\n                                    "
                             )
                           ])
                         : _vm._e()
@@ -54330,7 +54362,7 @@ var render = function() {
                       !_vm.$v.form.plate.required
                         ? _c("div", { staticClass: "invalid-feedback" }, [
                             _vm._v(
-                              "\n                                        Required\n                                    "
+                              "\n                                        Requerido.\n                                    "
                             )
                           ])
                         : _vm._e()
@@ -54347,11 +54379,7 @@ var render = function() {
                         _c("v-select", {
                           staticClass: "form-control",
                           class: { "is-invalid": _vm.$v.form.brand.$error },
-                          attrs: {
-                            id: "brand",
-                            placeholder: "Marca",
-                            options: _vm.brands
-                          },
+                          attrs: { id: "brand", options: _vm.brands },
                           model: {
                             value: _vm.form.brand,
                             callback: function($$v) {
@@ -54368,7 +54396,7 @@ var render = function() {
                         !_vm.$v.form.brand.required
                           ? _c("div", { staticClass: "invalid-feedback" }, [
                               _vm._v(
-                                "\n                                        Required\n                                    "
+                                "\n                                        Requerido\n                                    "
                               )
                             ])
                           : _vm._e()
@@ -54415,7 +54443,7 @@ var render = function() {
                       !_vm.$v.form.type.required
                         ? _c("div", { staticClass: "invalid-feedback" }, [
                             _vm._v(
-                              "\n                                        Required\n                                    "
+                              "\n                                        Requerido\n                                    "
                             )
                           ])
                         : _vm._e()
@@ -54466,7 +54494,7 @@ var render = function() {
                       !_vm.$v.form.model.required
                         ? _c("div", { staticClass: "invalid-feedback" }, [
                             _vm._v(
-                              "\n                                        Required\n                                    "
+                              "\n                                        Requerido\n                                    "
                             )
                           ])
                         : _vm._e()
@@ -74748,7 +74776,7 @@ var feedbackMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('f
 /* Cars */
 
 var carComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('car', ['getAllCars'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('car', ['cars']));
-var carMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('car', ['fetchAllCars', 'createCar', 'deleteCar']);
+var carMethods = Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('car', ['fetchAllCars', 'createCar', 'createOwner', 'deleteCar']);
 /* Search */
 
 var searchComputed = _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('search', ['getResults'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('search', ['results']));
@@ -74994,8 +75022,18 @@ var actions = {
       return Promise.reject(error);
     });
   },
-  deleteCar: function deleteCar(_ref3, id) {
-    var commit = _ref3.commit;
+  createOwner: function createOwner(_ref3, form) {
+    var state = _ref3.state,
+        commit = _ref3.commit;
+    console.log(form);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(baseURL, "users"), form).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  deleteCar: function deleteCar(_ref4, id) {
+    var commit = _ref4.commit;
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("".concat(baseURL, "cars/").concat(id)).then(function (response) {
       commit('SET_CARS', response.data.data);
       return response.data;

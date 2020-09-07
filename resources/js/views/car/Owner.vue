@@ -76,7 +76,7 @@
                                     <span
                                         v-if="!$v.form.email.required"
                                         class="invalid-feedback">
-                                        Required
+                                        Requerido
                                     </span>
                                 </div>
 
@@ -91,7 +91,7 @@
                                     <span
                                         v-if="!$v.form.phone_number.required"
                                         class="invalid-feedback">
-                                        Required
+                                        Requerido
                                     </span>
                                 </div>
 
@@ -115,7 +115,7 @@
                                         <div
                                             v-if="!$v.form.alias.required"
                                             class="invalid-feedback">
-                                            Required
+                                            Requerido
                                         </div>
                                     </div>
 
@@ -130,7 +130,7 @@
                                         <div
                                             v-if="!$v.form.plate.required"
                                             class="invalid-feedback">
-                                            Required
+                                            Requerido.
                                         </div>
                                     </div>
 
@@ -138,7 +138,6 @@
                                         <label for="brand">Marca</label>
                                         <v-select
                                             id="brand"
-                                            placeholder="Marca"
                                             v-model.trim="form.brand"
                                             class="form-control"
                                             :class="{ 'is-invalid': $v.form.brand.$error }"
@@ -147,7 +146,7 @@
                                         <div
                                             v-if="!$v.form.brand.required"
                                             class="invalid-feedback">
-                                            Required
+                                            Requerido
                                         </div>
                                     </div>
 
@@ -162,7 +161,7 @@
                                         <div
                                             v-if="!$v.form.type.required"
                                             class="invalid-feedback">
-                                            Required
+                                            Requerido
                                         </div>
                                     </div>
 
@@ -180,7 +179,7 @@
                                         <div
                                             v-if="!$v.form.model.required"
                                             class="invalid-feedback">
-                                            Required
+                                            Requerido
                                         </div>
                                     </div>
                                 </article>
@@ -207,6 +206,7 @@
 
 <script>
     import { required, email, minLength } from 'vuelidate/lib/validators'
+    import { carMethods } from '../../store/helper'
 
     export default {
         data() {
@@ -229,8 +229,33 @@
             }
         },
         methods: {
-            onSubmit() {
-                console.log('onSubmit');
+            ...carMethods,
+            clearForm() {
+                this.form.alias = null;
+                this.form.plate = null;
+                this.form.brand = null;
+                this.form.type = null;
+                this.form.model = null;
+                this.form.first_name =   '';
+                this.form.last_name =    '';
+                this.form.email = null;
+                this.form.phone_number = null;
+
+                this.$v.form.$reset();
+            },
+            onSubmit(evt) {
+                 evt.preventDefault();
+
+                this.$v.form.$touch();
+
+                if ( ! this.$v.form.$invalid ) {
+                    this.createOwner(this.form).then( (Response) => {
+                        if ( Response.success ) {
+                            this.clearForm();
+                            swal("Good!", 'El propietarios se registro exitasomente.', 'success');
+                        }
+                    });
+                }
             }
         },
         validations: {

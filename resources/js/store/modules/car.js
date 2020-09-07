@@ -39,6 +39,15 @@ const actions = {
                 return Promise.reject(error);
             });
     },
+    createOwner({ state, commit }, form) {
+        console.log(form);
+        return axios.post(`${baseURL}users`, form)
+            .then((response) => {
+                return response.data;
+            }).catch(error => {
+                return Promise.reject(error);
+            });
+    },
     deleteCar({ commit }, id) {
         return axios.delete(`${baseURL}cars/${id}`)
             .then((response) => {
